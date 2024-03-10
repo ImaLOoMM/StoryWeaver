@@ -1,0 +1,14 @@
+{
+  "name": "stiryweaver",
+  "version": "1.0.0",
+  "description": "StoryWeaver Client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "SW",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^29.0.1"
+  }
+}
