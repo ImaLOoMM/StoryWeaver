@@ -12,7 +12,15 @@ function createWindow() {
         icon: __dirname + "/img/swlogo.png"
     });
 
-    win.setFullScreen(true);
+    win.setFullScreen(true); // Окно на весь экран
+
+    win.webContents.on('before-input-event', (event, input) => {
+        // Проверяем, является ли нажатая клавиша F11
+        if (input.key === 'F11') {
+            // Предотвращаем дальнейшее действие по умолчанию
+            event.preventDefault();
+        }
+    });
     
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
