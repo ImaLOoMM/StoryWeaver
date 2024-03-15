@@ -9,7 +9,10 @@ function createWindow() {
         width: 800, 
         height: 540,
         frame: false,
-        icon: __dirname + "/img/swlogo.png"
+        icon: __dirname + "/img/logo/swlogo.png",
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     win.setFullScreen(true); // Окно на весь экран
