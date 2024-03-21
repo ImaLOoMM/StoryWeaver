@@ -2,15 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const panel_btn = document.getElementById('panel_button');
     const panel = document.getElementById('panel');
     const oc_arrow = document.getElementById('oc_arrow');
+    const content = document.getElementById('content')
     let is_options_panel_opened = false;
 
     panel_btn.addEventListener('click', function () {
         if (is_options_panel_opened){
+            /*Закрыть окно*/
+            content.style.filter = "none";
             panel.style.left = '-20%';
             panel_btn.style.left = '0%'
             oc_arrow.classList.remove('left-arrow');
             is_options_panel_opened = false;
         } else {
+            content.style.filter = "blur(10px)"
             panel.style.left = '0px';
             panel_btn.style.left = '20%'
             oc_arrow.classList.add('left-arrow');
@@ -24,4 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // hideButton.addEventListener('click', function () {
     //     panel.style.left = '-200px';
     // });
+});
+
+var buttons = document.querySelectorAll('button');
+
+// Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
+buttons.forEach(function(button) {
+    button.setAttribute('tabindex', '-1');
 });

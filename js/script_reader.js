@@ -6,10 +6,10 @@ function read(script){
     let key = 0;
     while (true){
         const [funcname, kwargs, next] = script[key]
-        console.log(key); 
-        console.log(funcname);
-        console.log(kwargs);
-        console.log(next);
+        // console.log(key); 
+        // console.log(funcname);
+        // console.log(kwargs);
+        // console.log(next);
         if (next in script){
             key = next
         } else {
@@ -19,10 +19,9 @@ function read(script){
     }
 }
 
-fetch('novels/v3.json') // Загружаем файл JSON
+fetch('novels/50.json') // Загружаем файл JSON
     .then(response => {
         // Обработка HTTP-ответа
-        
         return response.json(); // Преобразуем ответ в JSON и передаем дальше
     })
     .then(data => {
