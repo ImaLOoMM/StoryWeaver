@@ -9,6 +9,7 @@
   "author": "SW",
   "license": "ISC",
   "dependencies": {
-    "electron": "^29.0.1"
+    "electron": "^29.0.1",
+    "gif.js": "^0.2.0"
   }
 }

@@ -36,3 +36,21 @@ var buttons = document.querySelectorAll('button');
 buttons.forEach(function(button) {
     button.setAttribute('tabindex', '-1');
 });
+
+//let tgif = document.getElementById("tgif");
+
+
+// function delay(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
+// async function example() {
+//     for (let index = 0; index < 119; index+=1) {
+//         await delay(0);
+//         tgif.src = "img/loading/frame_" + Math.round(index) + ".png";
+//     }
+//     console.log('Цикл завершен');
+// }
+
+// example();
+

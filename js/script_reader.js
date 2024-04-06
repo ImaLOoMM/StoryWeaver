@@ -1,10 +1,28 @@
 const body = document.getElementById('main-body');
-let bodyBg = body.style.backgroundColor
+const loading_img = document.getElementById('loading-progress');
+
+
+function play_gif(frame) {
+    const image = document.getElementById('loading-progress');
+    const randomNumber = Math.floor(Math.random() * 1000000);
+    const newSrc = "img/loading/frame_" + frame + ".png" + '?random=' + randomNumber;
+    image.src = newSrc;
+}
 
 
 function read(script){
     let key = 0;
+    let len = Object.keys(script).length;
+    let element = 0;
+    let progress = 0;
+    console.log(len)
     while (true){
+        element ++;
+        if (progress != Math.round(element/len*100)){
+            progress = Math.round(element/len*100)
+            console.log(progress + "%")
+        }
+
         const [funcname, kwargs, next] = script[key]
         // console.log(key); 
         // console.log(funcname);
@@ -14,8 +32,9 @@ function read(script){
             key = next
         } else {
             console.log("end");
-            return 0;
+            return;
         }
+        
     }
 }
 
