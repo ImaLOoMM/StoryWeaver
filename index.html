@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="main.js"></script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,29 +9,38 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     
 </head>
-<body id="main-body">
+<body id="main-body" class="main-body">
 
     <div id="loading-window">
+        <!-- Loading window. Start only-->>
         <h1>Loading...</h1>
-        <p>fdf</p>
+        <p>wait a minute, please, you, impatient</p>
         <img src="img/options_panel/sw.gif" alt="Loading" id="loading-progress">
     </div>
 
     <div id="panel">
-        <!-- Options Panel Button -->
+        <!-- Options Panel -->
         <h1>OPTIONS</h1>
         <button id="options"><img src="img/options_panel/options.svg" alt="options"></button>
+        <div id="protection_layer"></div>
     </div>
     <button id="panel_button">
+        <!-- Options Panel Button-->
         <img src="img/options_panel/arrow.svg" alt="Options panel" id="oc_arrow">
     </button>
-    <div id="content">
-        <!-- Main Content -->
-        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet facere aliquid facilis optio nesciunt libero nemo tenetur. Non alias ab, rerum accusamus facilis laboriosam, porro recusandae, deleniti neque itaque maiores!</h1>
-    </div>
+    <div id="everywhere">
+        <div id="content">
+            <!-- Main Content -->
+            <h1>Lorem ipsum dolor sit</h1>
+        </div>
+        <div id="text">
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet facere aliquid facilis optio nesciunt libero nemo tenetur. Non alias ab, rerum accusamus facilis laboriosam, porro recusandae, deleniti neque itaque maiores!</h1>
+        </div>
+    </div>  
     <!--JS-->
     <script src="js/script_reader.js"></script> <!-- Чтение скрипта новеллы -->
     <script src="renderer.js"></script>
+    
     <script src="js/novel_start.js"></script>
 </body>
 </html>

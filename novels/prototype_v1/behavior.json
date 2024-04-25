@@ -1,0 +1,57 @@
+{   
+    "0": [
+        "await-click",
+        {   
+            "where": "content"
+        },
+        [1]
+    ],
+    "1": [
+       "fill",
+       {
+          "area": "content",
+          "background": "#fa7249",
+          "text": "#4972af"
+       },
+       [2,3]
+    ],
+    "2": [
+        "fill",
+       {
+          "area": "text",
+          "background": "#D4FA49",
+          "text": "#4972af"
+       },
+       [3]
+    ],
+    "3": [
+        "fill",
+        {
+           "area": "content",
+           "background": "#00383a",
+           "text": "white"
+        },
+        [4]
+    ],
+    "4": [
+        "fill",
+        {
+           "area": "text",
+           "background": "#DDDDCC33",
+           "text": "#F3F3FFs"
+        },
+        [5]
+    ],
+    "5": [
+        "text",
+        {
+           "text": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>",
+           "textColor": "red",
+           "fontSize": "72px",
+           "borderStyle": "solid",
+           "borderColor": "#ffaa10",
+           "borderWidth": "12px 0px 0px 0px"
+        },
+        [0]
+    ]
+}

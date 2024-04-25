@@ -2,9 +2,10 @@
    margin: 0px;
    padding: 0px;
    user-select: none;
+   box-sizing: border-box;
+   transition: filter 0.5s ease;
 }
 body {
-    background-color: #00383a;
     font-size: 16pt;
 }
 img{
@@ -12,7 +13,7 @@ img{
 }
 
 #loading-window {
-    z-index: 2147483647;
+    z-index: 21;
     background-color: #8fbc8f;
     color: red;
     font-size: 36pt;
@@ -93,9 +94,30 @@ img{
 
 
 #content {
-    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00383a;
+    z-index: 7;
 }
 
-#content h1 {
+#text {
+    position: absolute;
+    bottom: 1%;
+    width: 98%;
+    left: 1%;
+    height: 30%;
+    background-color: darkcyan;
+    z-index: 8;
+}
+
+#text h1 {
     font-size: 2em;
+}
+
+.blur-effect {
+    filter: blur(10px);
+    
 }
