@@ -7,45 +7,57 @@
         [1]
     ],
     "1": [
+        "text",
+        {
+           "text": "Карусель-карусель",
+           "textColor": "red",
+           "fontSize": "72px",
+           "borderStyle": "solid",
+           "borderColor": "#ffaa10",
+           "borderWidth": "12px 0px 0px 0px"
+        },
+        [2]
+    ],
+    "2": [
        "fill",
        {
           "area": "content",
           "background": "#fa7249",
           "text": "#4972af"
        },
-       [2,3]
+       [3,4]
     ],
-    "2": [
+    "3": [
         "fill",
        {
           "area": "text",
           "background": "#D4FA49",
           "text": "#4972af"
        },
-       [3]
+       [4]
     ],
-    "3": [
+    "4": [
         "fill",
         {
            "area": "content",
            "background": "#00383a",
            "text": "white"
         },
-        [4]
+        [5]
     ],
-    "4": [
+    "5": [
         "fill",
         {
            "area": "text",
            "background": "#DDDDCC33",
            "text": "#F3F3FFs"
         },
-        [5]
+        [6]
     ],
-    "5": [
+    "6": [
         "text",
         {
-           "text": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>",
+           "text": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
            "textColor": "red",
            "fontSize": "72px",
            "borderStyle": "solid",
