@@ -23,23 +23,10 @@ meaning:
 ...
 }
 
-functions:
-fill: заливает экран/участки экрана цветами | fills screen(areas) with colors
-await-click: ждёт клика | wait for click by mouse or finger
-
 
 functions' kwargs:
 fill: ["bg":color];
 
+
 key_words word:
 color r"#[0-9a-f]{6|8}"
-
-нужно:
-варианты ответа
-изображение
-видео
-аудио
-изменение текста
-условия
-переменные
-фильтры
