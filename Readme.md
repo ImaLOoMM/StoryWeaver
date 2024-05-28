@@ -1,4 +1,4 @@
-# StoryWeawer ![dsf](img\logo\swlogo.png)
+# StoryWeawer ![image](https://github.com/MrRadm1r/StoryWeaver/assets/85049797/960602c0-27a1-4b2b-8535-df63f73c8d9e)
 
 ## Настольное приложение для запуска визуальных новелл.
 
