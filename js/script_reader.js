@@ -24,6 +24,8 @@ function fill({area = "content", text="", background=""}, raw_next){
 
 function await_click({where = "content"}, raw_next){
     return new Promise((resolve, reject) => {
+         // Определение области ожидания клика
+        target = document.getElementById(where);
         const onClick = () => {
              // После выхода из функции обработчик клика больше не пригодится. Удаляем
             target.removeEventListener('click', onClick);
@@ -31,48 +33,56 @@ function await_click({where = "content"}, raw_next){
             if(raw_next.length > 1){ console.warn("Too many links") }
             resolve(raw_next[0]);
         };
-         // Определение области ожидания клика
-        target = document.getElementById(where);
          // обработчик клика
         target.addEventListener('click', onClick);
     });
 }
 
-function text({text, backgroundColor = "", textColor = "", fontSize = "",
-              borderStyle = "", borderColor = "", borderWidth = ""}, raw_next){
+function await_time({time = 1000}, raw_next) {
+    // time in ms
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            if(raw_next.length > 1){ console.warn("Too many links") }
+            resolve(raw_next[0]);;
+        }, time);
+    });
+}
+
+function text(kwargs = {}, raw_next){
     return new Promise((resolve, reject) => {
-        var paragraph = document.getElementById("text");
-        paragraph.innerHTML = text;
-        if (backgroundColor){ paragraph.style.backgroundColor = backgroundColor }
-        if (textColor){ paragraph.style.color = textColor }
-        if (fontSize){ paragraph.style.fontSize = fontSize }
-        if (borderStyle){ paragraph.style.borderStyle = borderStyle }
-        if (borderColor){ paragraph.style.borderColor = borderColor }
-        if (borderWidth){ paragraph.style.borderWidth = borderWidth }
+        const paragraph = document.getElementById("text");
+        const { text_content = "", ...rest } = kwargs;
+        paragraph.innerHTML = text_content;
+        for (const [method, value] of Object.entries(rest)) {
+            paragraph.style[method] = value;
+        }
          // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
-        if(raw_next.length > 1){console.warn("Too many links") }
+        if (raw_next.length > 1){console.warn("Too many links") }
         resolve(raw_next[0]);
     });
 }
 
-async function behavior_manager(func_name, func_kwargs, raw_next){
-    return new Promise((resolve, reject) => {
-        let next;
-        setTimeout(async () => {
-            switch(func_name){
-                case "fill":
-                    next = await fill(func_kwargs, raw_next);
-                    break;
-                case "await-click":
-                    next = await await_click(func_kwargs, raw_next);
-                    break;
-                case "text":
-                    next = await text(func_kwargs, raw_next);
-                    break;
-            }
-            resolve(next);
-        }, 1000);
-    });
+
+async function behavior_manager(func_name, func_kwargs, raw_next) {
+    let next;
+    switch (func_name) {
+        case "fill":
+            next = await fill(func_kwargs, raw_next);
+            break;
+        case "await-click":
+            next = await await_click(func_kwargs, raw_next);
+            break;
+        case "await-time":
+            next = await await_time(func_kwargs, raw_next);
+            break;
+        case "text":
+            next = await text(func_kwargs, raw_next);
+            break;
+        
+        default:
+            throw new Error(`Unknown function name: ${func_name}`);
+    }
+    return next;
 }
 
 
@@ -80,14 +90,10 @@ async function read(script){
     let key = 0;
     let len = Object.keys(script).length;
     let element = 0;
-    let progress = 0;
     console.log(len)
     while (true){
         element ++;
-        if (progress != Math.round(element/len*100)){
-            progress = Math.round(element/len*100)
-            console.log(progress + "%")
-        }
+        console.log(element)
 
         const [funcname, kwargs, raw_next] = script[key]
 

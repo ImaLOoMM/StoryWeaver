@@ -9,12 +9,19 @@
     "1": [
         "text",
         {
-           "text": "Карусель-карусель",
+           "text_content": "Карусель-карусель",
            "textColor": "red",
            "fontSize": "72px",
            "borderStyle": "solid",
            "borderColor": "#ffaa10",
            "borderWidth": "12px 0px 0px 0px"
+        },
+        [9]
+    ],
+    "9": [
+        "await-time",
+        {   
+            "time": 1000
         },
         [2]
     ],
@@ -34,7 +41,23 @@
           "background": "#D4FA49",
           "text": "#4972af"
        },
-       [4]
+       [10]
+    ],
+    "10": [
+        "text",
+        {
+           "text_content": "море-море, океан",
+           "textColor": "aqua",
+           "borderColor": "#7810FF"
+        },
+        [8]
+    ],
+    "8": [
+        "await-time",
+        {   
+            "time": 1000
+        },
+        [4]
     ],
     "4": [
         "fill",
@@ -57,12 +80,26 @@
     "6": [
         "text",
         {
-           "text": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
+           "text_content": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
            "textColor": "red",
            "fontSize": "72px",
            "borderStyle": "solid",
            "borderColor": "#ffaa10",
            "borderWidth": "12px 0px 0px 0px"
+        },
+        [7]
+    ],
+    "11": [
+        "await-time",
+        {   
+            "time": 1000
+        },
+        [7]
+    ],
+    "7": [
+        "text",
+        {
+            "text_content": "wtt"
         },
         [0]
     ]
