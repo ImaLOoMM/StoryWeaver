@@ -19,7 +19,7 @@ function await_click({where = "content"}, raw_next){
          // обработчик клика
         target.addEventListener('click', onClick);
     });
-// }
+}
 
 function await_time({time = 1000}, raw_next) {
     // time in ms
