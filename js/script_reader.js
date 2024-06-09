@@ -1,6 +1,37 @@
+// import { await_click } from './awaits.js';
+
 const body = document.getElementById('main-body');
 const loading_img = document.getElementById('loading-progress');
 
+Awaits
+
+function await_click({where = "content"}, raw_next){
+    return new Promise((resolve, reject) => {
+         // Определение области ожидания клика
+        target = document.getElementById(where);
+        const onClick = () => {
+             // После выхода из функции обработчик клика больше не пригодится. Удаляем
+            target.removeEventListener('click', onClick);
+             // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
+            if(raw_next.length > 1){ console.warn("Too many links") }
+            resolve(raw_next[0]);
+        };
+         // обработчик клика
+        target.addEventListener('click', onClick);
+    });
+// }
+
+function await_time({time = 1000}, raw_next) {
+    // time in ms
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            if(raw_next.length > 1){ console.warn("Too many links") }
+            resolve(raw_next[0]);;
+        }, time);
+    });
+}
+
+// Atmosphere
 
 function fill({area = "content", text="", background=""}, raw_next){
     return new Promise((resolve, reject) => {
@@ -19,32 +50,6 @@ function fill({area = "content", text="", background=""}, raw_next){
         }
          // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
         resolve(raw_next[0])
-    });
-}
-
-function await_click({where = "content"}, raw_next){
-    return new Promise((resolve, reject) => {
-         // Определение области ожидания клика
-        target = document.getElementById(where);
-        const onClick = () => {
-             // После выхода из функции обработчик клика больше не пригодится. Удаляем
-            target.removeEventListener('click', onClick);
-             // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
-            if(raw_next.length > 1){ console.warn("Too many links") }
-            resolve(raw_next[0]);
-        };
-         // обработчик клика
-        target.addEventListener('click', onClick);
-    });
-}
-
-function await_time({time = 1000}, raw_next) {
-    // time in ms
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            if(raw_next.length > 1){ console.warn("Too many links") }
-            resolve(raw_next[0]);;
-        }, time);
     });
 }
 

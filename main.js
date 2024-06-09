@@ -17,6 +17,8 @@ function createWindow() {
 
     win.setFullScreen(true); // Окно на весь экран
 
+    win.loadFile('index.html');
+
     win.webContents.on('before-input-event', (event, input) => {
         // Проверяем, является ли нажатая клавиша F11
         if (input.key === 'F11') {
@@ -43,4 +45,10 @@ app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
     app.quit();
+});
+
+app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
 });
