@@ -3,7 +3,7 @@
 const body = document.getElementById('main-body');
 const loading_img = document.getElementById('loading-progress');
 
-Awaits
+// Awaits
 
 function await_click({where = "content"}, raw_next){
     return new Promise((resolve, reject) => {
@@ -138,4 +138,4 @@ fetch("novels/prototype_v1/behavior.json") // Загружаем файл JSON
     .catch(error => {
         // Обработка ошибок
         console.error('Ошибка загрузки файла:', error);
-    });
+});
