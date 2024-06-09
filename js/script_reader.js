@@ -1,5 +1,4 @@
-// import { await_click } from './awaits.js';
-// import await_click_imp from './awaits.js';
+import { await_click_imp } from './awaits.js';
 
 const body = document.getElementById('main-body');
 const loading_img = document.getElementById('loading-progress');
