@@ -2,7 +2,8 @@
     "0": [
         "await-click",
         {   
-            "where": "content"
+            "where": "content",
+            "count": 2
         },
         [1]
     ],

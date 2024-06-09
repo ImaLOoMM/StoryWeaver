@@ -1,23 +1,38 @@
 // import { await_click } from './awaits.js';
+// import await_click_imp from './awaits.js';
 
 const body = document.getElementById('main-body');
 const loading_img = document.getElementById('loading-progress');
 
+
+function one_ctl(raw_next) {
+    // для функций, которые принимают только одну ctl
+    if (raw_next.length > 1) {
+        console.warn("Too many links");
+    }
+    return raw_next[0]
+}
+
+
 // Awaits
 
-function await_click({where = "content"}, raw_next){
+function await_click({ where = "content" , count = 1}, raw_next) {
     return new Promise((resolve, reject) => {
-         // Определение области ожидания клика
-        target = document.getElementById(where);
-        const onClick = () => {
-             // После выхода из функции обработчик клика больше не пригодится. Удаляем
-            target.removeEventListener('click', onClick);
-             // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
-            if(raw_next.length > 1){ console.warn("Too many links") }
-            resolve(raw_next[0]);
+        const target = document.getElementById(where); // Определяем область ожидания клика
+        if (!target) {
+            // если указана несуществующая область определения
+            reject(new Error(`Element with id "${where}" not found`));
+            return;
         };
-         // обработчик клика
-        target.addEventListener('click', onClick);
+        let clickCount = 0;
+        const onClick = () => {
+            clickCount++;
+            if (clickCount >= count) {
+                target.removeEventListener('click', onClick); // Удаляем обработчик события
+                resolve(one_ctl(raw_next)); // Когда клик произошел, разрешаем промис
+            }
+        };
+        target.addEventListener('click', onClick); // Добавляем обработчик клика
     });
 }
 
@@ -102,7 +117,7 @@ async function read(script){
 
         const [funcname, kwargs, raw_next] = script[key]
 
-        next = await behavior_manager(funcname, kwargs, raw_next);
+        const next = await behavior_manager(funcname, kwargs, raw_next);
 
         // console.log(key); 
         

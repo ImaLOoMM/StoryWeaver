@@ -11,7 +11,8 @@ function createWindow() {
         frame: false,
         icon: __dirname + "/img/logo/swlogo.png",
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         }
     });
 
