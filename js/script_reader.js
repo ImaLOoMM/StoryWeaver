@@ -1,55 +1,14 @@
-import { await_click_imp } from './awaits.js';
+import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
 
-const body = document.getElementById('main-body');
-const loading_img = document.getElementById('loading-progress');
+// const body = document.getElementById('main-body');
+// const loading_img = document.getElementById('loading-progress');
 
-
-function one_ctl(raw_next) {
-    // для функций, которые принимают только одну ctl
-    if (raw_next.length > 1) {
-        console.warn("Too many links");
-    }
-    return raw_next[0]
-}
-
-
-// Awaits
-
-function await_click({ where = "content" , count = 1}, raw_next) {
-    return new Promise((resolve, reject) => {
-        const target = document.getElementById(where); // Определяем область ожидания клика
-        if (!target) {
-            // если указана несуществующая область определения
-            reject(new Error(`Element with id "${where}" not found`));
-            return;
-        };
-        let clickCount = 0;
-        const onClick = () => {
-            clickCount++;
-            if (clickCount >= count) {
-                target.removeEventListener('click', onClick); // Удаляем обработчик события
-                resolve(one_ctl(raw_next)); // Когда клик произошел, разрешаем промис
-            }
-        };
-        target.addEventListener('click', onClick); // Добавляем обработчик клика
-    });
-}
-
-function await_time({time = 1000}, raw_next) {
-    // time in ms
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            if(raw_next.length > 1){ console.warn("Too many links") }
-            resolve(raw_next[0]);;
-        }, time);
-    });
-}
 
 // Atmosphere
 
 function fill({area = "content", text="", background=""}, raw_next){
     return new Promise((resolve, reject) => {
-        let interaction_area = document.getElementById(area); // Определение области заливки
+        const interaction_area = document.getElementById(area); // Определение области заливки
         if (!interaction_area){
             console.error("AttributeError: Uncnown area to fill:", area)
         }
@@ -107,9 +66,9 @@ async function behavior_manager(func_name, func_kwargs, raw_next) {
 
 async function read(script){
     let key = 0;
-    let len = Object.keys(script).length;
     let element = 0;
-    console.log(len)
+    // const len = Object.keys(script).length;
+    // console.log(len)
     while (true){
         element ++;
         console.log(element)

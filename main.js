@@ -1,9 +1,6 @@
-import { path } from 'path';
-import { format } from 'url';
-import { app, BrowserWindow } from 'electron';
-// const path = require('path');
-// const url = require('url');
-// const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const url = require('url');
+const {app, BrowserWindow} = require('electron');
 
 let win;
 
@@ -31,8 +28,8 @@ function createWindow() {
         }
     });
     
-    win.loadURL(format({
-        pathname: join(__dirname, 'index.html'),
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, 'index.html'),
         protocol: 'file',
         slashes: true
     }));

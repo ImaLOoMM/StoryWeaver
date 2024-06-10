@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "StoryWeaver Client",
   "main": "main.js",
-  "type": "module",
   "scripts": {
     "start": "electron ."
   },
