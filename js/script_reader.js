@@ -1,30 +1,9 @@
 import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
+import { fill } from './user_funcions/colors.js'; // Awaits
 
 // const body = document.getElementById('main-body');
 // const loading_img = document.getElementById('loading-progress');
 
-
-// Atmosphere
-
-function fill({area = "content", text="", background=""}, raw_next){
-    return new Promise((resolve, reject) => {
-        const interaction_area = document.getElementById(area); // Определение области заливки
-        if (!interaction_area){
-            console.error("AttributeError: Uncnown area to fill:", area)
-        }
-        if (text){
-            interaction_area.style.color = text;
-        }
-        if (background){
-            interaction_area.style.backgroundColor = background;
-        }
-        if(raw_next.length > 1){
-            console.warn("Too many links")
-        }
-         // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
-        resolve(raw_next[0])
-    });
-}
 
 function text(kwargs = {}, raw_next){
     return new Promise((resolve, reject) => {

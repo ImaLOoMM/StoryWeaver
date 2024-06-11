@@ -36,8 +36,7 @@ export function await_time({time = 1000}, raw_next) {
     // time in ms
     return new Promise((resolve) => {
         setTimeout(() => {
-            if(raw_next.length > 1){ console.warn("Too many links") }
-            resolve(raw_next[0]);;
+            resolve(one_ctl(raw_next));
         }, time);
     });
 }
