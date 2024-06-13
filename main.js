@@ -11,8 +11,15 @@ function createWindow() {
         frame: false,
         icon: __dirname + "/img/logo/swlogo.png",
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
+            nodeIntegration: true, // Разрешение на использование node.js API в рендер процессах
+            contextIsolation: false, // Включение доступа к DOM API в рендер процессах
+            enableRemoteModule: true, // Разрешение на использование remote модуля в рендер процессах
+            sandbox: false, // Отключение песочницы для полного доступа к API Node.js
+            webSecurity: true, // Включение веб-безопасности
+            allowRunningInsecureContent: false, // Запрещение запуска небезопасного контента
+            worldSafeExecuteJavaScript: true, // Включение безопасного выполнения JavaScript
+            contextBridge: true, // Включение context bridge для безопасного взаимодействия с API между процессами
+            additionalArguments: ['--disable-http-cache'] // Отключение HTTP кэширования
         }
     });
 
@@ -26,6 +33,10 @@ function createWindow() {
             // Предотвращаем дальнейшее действие по умолчанию
             event.preventDefault();
         }
+        // Отключить возможность заново открыть панель разработчика
+        // if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+        //     event.preventDefault();
+        // }
     });
     
     win.loadURL(url.format({
@@ -34,7 +45,7 @@ function createWindow() {
         slashes: true
     }));
 
-    win.webContents.openDevTools(); // Dev Tools
+    win.webContents.openDevTools(); // DevTools
 
     win.on('closed', () => {
         win = null;
