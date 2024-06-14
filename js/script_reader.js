@@ -6,26 +6,21 @@ import { text } from './user_funcions/add.js'; // Awaits
 // const loading_img = document.getElementById('loading-progress');
 
 
+const functionMap = {
+    "fill": fill,
+    "await-click": await_click,
+    "await-time": await_time,
+    "text": text
+}
+
+
 async function behavior_manager(func_name, func_kwargs, raw_next) {
-    let next;
-    switch (func_name) {
-        case "fill":
-            next = await fill(func_kwargs, raw_next);
-            break;
-        case "await-click":
-            next = await await_click(func_kwargs, raw_next);
-            break;
-        case "await-time":
-            next = await await_time(func_kwargs, raw_next);
-            break;
-        case "text":
-            next = await text(func_kwargs, raw_next);
-            break;
-        
-        default:
-            throw new Error(`Unknown function name: ${func_name}`);
+    if (functionMap.hasOwnProperty(func_name)) {
+        const func = functionMap[func_name];
+        return await func(func_kwargs, raw_next);
+    } else {
+        throw new Error(`Unknown function name: ${func_name}`);
     }
-    return next;
 }
 
 
