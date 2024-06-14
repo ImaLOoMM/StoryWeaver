@@ -9,7 +9,10 @@
   "author": "SW",
   "license": "ISC",
   "dependencies": {
-    "electron": "^29.0.1",
+    "dompurify": "^3.1.5",
     "gif.js": "^0.2.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.1"
   }
 }

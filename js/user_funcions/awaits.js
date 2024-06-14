@@ -1,13 +1,5 @@
 import { one_ctl } from '../one_ctl.js';
 
-// function one_ctl(raw_next) {
-//     // для функций, которые принимают только одну ctl
-//     if (raw_next.length > 1) {
-//         console.warn("Too many links");
-//     }
-//     return raw_next[0]
-// }
-
 export function await_click({ where = "content" , count = 1}, raw_next, e) {
     return new Promise((resolve, reject) => {
         const target = document.getElementById(where); // Определяем область ожидания клика

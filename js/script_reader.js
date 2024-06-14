@@ -6,9 +6,6 @@ import { text } from './user_funcions/add.js'; // Awaits
 // const loading_img = document.getElementById('loading-progress');
 
 
-
-
-
 async function behavior_manager(func_name, func_kwargs, raw_next) {
     let next;
     switch (func_name) {
