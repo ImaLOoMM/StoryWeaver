@@ -28,7 +28,6 @@ async function read(script){
     let key = 0;
     let element = 0;
     // const len = Object.keys(script).length;
-    // console.log(len)
     while (true){
         element ++;
         console.log(element + " {");
@@ -54,10 +53,10 @@ async function read(script){
     }
 }
 
-fetch("novels/prototype_v1/behavior.json") // Загружаем файл JSON
+fetch("novels/prototype_v1/behavior.json") // Загружает файл JSON
     .then(response => {
         // Обработка HTTP-ответа
-        return response.json(); // Преобразуем ответ в JSON и передаем дальше
+        return response.json(); // Преобразет ответ в JSON и передаёт дальше
     })
     .then(data => {
         read(data)

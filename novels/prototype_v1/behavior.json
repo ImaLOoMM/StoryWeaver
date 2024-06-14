@@ -10,12 +10,12 @@
     "1": [
         "text",
         {
-           "text_content": "Карусель-карусель",
-           "textColor": "red",
-           "fontSize": "72px",
-           "borderStyle": "solid",
-           "borderColor": "#ffaa10",
-           "borderWidth": "12px 0px 0px 0px"
+           "textContent": "Карусель-карусель",
+           "color": "red",
+           "font-size": "72px",
+           "border-style": "solid",
+           "border-color": "#ffaa10",
+           "border-width": "12px 0px 0px 0px"
         },
         [9]
     ],
@@ -47,8 +47,8 @@
     "10": [
         "text",
         {
-           "text_content": "море-море, океан",
-           "textColor": "aqua",
+           "textContent": "море-море, океан",
+           "color": "aqua",
            "borderColor": "#7810FF"
         },
         [8]
@@ -76,32 +76,32 @@
            "background": "#DDDDCC33",
            "text": "#F3F3FFs"
         },
-        [6]
+        [7]
     ],
     "6": [
         "text",
         {
-           "text_content": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
-           "textColor": "red",
-           "fontSize": "72px",
-           "borderStyle": "solid",
-           "borderColor": "#ffaa10",
-           "borderWidth": "12px 0px 0px 0px"
+           "textContent": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
+           "color": "red",
+           "font-size": "72px",
+           "border-style": "solid",
+           "border-color": "#ffaa10",
+           "border-width": "12px 0px 0px 0px"
         },
-        [7]
+        [0]
     ],
     "11": [
         "await-time",
         {   
             "time": 1000
         },
-        [7]
+        [6]
     ],
     "7": [
         "text",
         {
-            "text_content": "<em><b>w</em>t</b>t"
+            "textContent": "<em><b>w</em>t</b>t"
         },
-        [0]
+        [11]
     ]
 }

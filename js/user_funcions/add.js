@@ -4,12 +4,12 @@ const DOMPurify = require('dompurify')(window);
 export function text(kwargs = {}, raw_next) {
     return new Promise((resolve, reject) => {
         const paragraph = document.getElementById("text");
-        const { text_content = "", ...rest } = kwargs;
-        const cleaned_text = DOMPurify.sanitize(text_content, {
-            ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'], // Разрешенные теги
+        const { textContent = "", ...rest } = kwargs;
+        const cleaned_text = DOMPurify.sanitize(textContent, {
+            ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 's', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'], // Разрешенные теги
             ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title'], // Разрешенные атрибуты
         });
-        if (text_content != cleaned_text) {
+        if (textContent != cleaned_text) {
             console.warn("cleared to:", cleaned_text);
         };
         paragraph.innerHTML = cleaned_text;
