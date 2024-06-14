@@ -6,9 +6,12 @@ export function text(kwargs = {}, raw_next) {
         const paragraph = document.getElementById("text");
         const { text_content = "", ...rest } = kwargs;
         const cleaned_text = DOMPurify.sanitize(text_content, {
-            ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b'], // Разрешенные теги
+            ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'], // Разрешенные теги
             ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title'], // Разрешенные атрибуты
         });
+        if (text_content != cleaned_text) {
+            console.warn("cleared to:", cleaned_text);
+        };
         paragraph.innerHTML = cleaned_text;
         for (const [method, value] of Object.entries(rest)) {
             paragraph.style[method] = value;

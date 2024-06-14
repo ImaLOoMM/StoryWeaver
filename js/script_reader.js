@@ -36,17 +36,19 @@ async function read(script){
     // console.log(len)
     while (true){
         element ++;
-        console.log(element)
-
-        const [funcname, kwargs, raw_next] = script[key]
-
-        const next = await behavior_manager(funcname, kwargs, raw_next);
-
-        // console.log(key); 
+        console.log(element + " {");
+        
+        const [funcname, kwargs, raw_next] = script[key];
         
         console.log(funcname);
+        console.log(key);
         console.log(kwargs);
-        console.log(raw_next, next);
+
+        const next = await behavior_manager(funcname, kwargs, raw_next);
+        
+        
+        console.log(raw_next);
+        console.log(next + " }");
         if (next in script){
             key = next
         } else {
