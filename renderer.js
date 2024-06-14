@@ -53,24 +53,12 @@ document.addEventListener('click', (event) => {
     if (event.target.tagName === 'A' && event.target.href) {
       const url = new URL(event.target.href);
       if (url.origin === window.location.origin) {
-        // Проверяем, что ссылка ведёт на текущий origin (внутренняя ссылка)
-        event.preventDefault(); // Предотвращаем переход по ссылке
-        // Ваша логика обработки перехода по внутренней ссылке
         console.log('Переход по внутренней ссылке:', event.target.href);
-        // Например, загрузка нового содержимого на страницу
-        fetch(url.href)
-          .then(response => response.text())
-          .then(html => {
-            document.body.innerHTML = html;
-          })
-          .catch(error => {
-            console.error('Ошибка загрузки:', error);
-          });
       } else {
         // Внешняя ссылка, запрещаем переход
         event.preventDefault();
         console.error('Отказано в попытке открыть внешнюю ссылку:', event.target.href);
       }
     }
-  });
+});
 

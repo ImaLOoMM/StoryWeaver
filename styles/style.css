@@ -12,6 +12,12 @@ img{
     pointer-events: none;
 }
 
+a {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 #loading-window {
     z-index: 21;
     background-color: #8fbc8f;

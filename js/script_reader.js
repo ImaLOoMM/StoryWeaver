@@ -1,23 +1,12 @@
 import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
 import { fill } from './user_funcions/colors.js'; // Awaits
+import { text } from './user_funcions/add.js'; // Awaits
 
 // const body = document.getElementById('main-body');
 // const loading_img = document.getElementById('loading-progress');
 
 
-function text(kwargs = {}, raw_next){
-    return new Promise((resolve, reject) => {
-        const paragraph = document.getElementById("text");
-        const { text_content = "", ...rest } = kwargs;
-        paragraph.innerHTML = text_content;
-        for (const [method, value] of Object.entries(rest)) {
-            paragraph.style[method] = value;
-        }
-         // Нет никаких вариаций, поэтому выбирается первый элемент во избежание ошибок
-        if (raw_next.length > 1){console.warn("Too many links") }
-        resolve(raw_next[0]);
-    });
-}
+
 
 
 async function behavior_manager(func_name, func_kwargs, raw_next) {

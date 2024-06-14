@@ -1,6 +1,6 @@
 const path = require('path');
 const url = require('url');
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 let win;
 
@@ -52,13 +52,17 @@ function createWindow() {
     });
 }
 
+// App ready event
 app.on('ready', createWindow);
 
-
+// App window-all-closed event
 app.on('window-all-closed', () => {
-    app.quit();
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
+// App activate event
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow();
