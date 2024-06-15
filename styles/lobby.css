@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+}
+
+body {
+    background-color: #005255;
+    
+}
+
+img{
+    pointer-events: none;
+}
+
+a {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menu *{
+    position: absolute;
+    font-size: 4vmin;
+    border-radius: 10px;
+}
+
+.base-menu {
+    font-size: 4vmin;
+    width: 50%;
+    height: 9%;
+    left: 25%;
+}
+
+#start {
+    top: 30%;
+}
+
+#select-game{
+    top: 40%;
+}
+
+#options{
+    top: 50%;
+}
+
+
+#quit {
+    top: 60%;
+}

@@ -1,46 +1,25 @@
 <!DOCTYPE html>
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/lobby.css">
     <title>StoryWeaver</title>
 </head>
-<body id="main-body" class="main-body">
-
-    <div id="loading-window">
-        <!-- Loading window. Start only-->
-        <h1>Loading...</h1>
-        <p>wait a minute, please, you, impatient person!</p>
-        <img src="img/options_panel/sw.gif" alt="Loading" id="loading-progress">
-    </div>
-
-    <div id="panel">
-        <!-- Options Panel -->
-        <h1>OPTIONS</h1>
-        <button id="options"><img src="img/options_panel/options.svg" alt="options"></button>
-        <div id="protection_layer"></div>
-    </div>
-    <button id="panel_button">
-        <!-- Options Panel Button-->
-        <img src="img/options_panel/arrow.svg" alt="Options panel" id="oc_arrow">
+<body>
+    <h1>Lorem ipsum dolor sit</h1>
+    
+    <div id="menu">
         
-    </button>
-    <div id="everywhere">
-        <div id="content">
-            <!-- Main Content -->
-            <h1>Lorem ipsum dolor sit</h1>
-        </div>
-        <div id="text">
-            <h1>Нажмите для продолжения! нажатие на поле текста не считается <p title="Подсказка">Текст с подсказкой</p></h1>
-            <a href="novels/p1.html">locallink</a><br>
-            <a href="https://examole.com">remote link</a>
-        </div>
+        <button class="base-menu" id="start">Start</button>
+        <button class="base-menu" id="select-game">Select Game</button>
+        <button class="base-menu" id="options">Options</button>
+        <button class="base-menu" id="quit">Quit</button>
     </div>  
     <!--JS-->
-    <script type="module" src="js/script_reader.js"></script> <!-- Чтение скрипта новеллы -->
     <script src="renderer.js"></script>
+    <script src="js/lobby.js"></script>
 </body>
 </html>

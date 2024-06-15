@@ -13,7 +13,6 @@ const functionMap = {
     "text": text
 }
 
-
 async function behavior_manager(func_name, func_kwargs, raw_next) {
     if (functionMap.hasOwnProperty(func_name)) {
         const func = functionMap[func_name];
@@ -22,7 +21,6 @@ async function behavior_manager(func_name, func_kwargs, raw_next) {
         throw new Error(`Unknown function name: ${func_name}`);
     }
 }
-
 
 async function read(script){
     let key = 0;
@@ -40,7 +38,6 @@ async function read(script){
 
         const next = await behavior_manager(funcname, kwargs, raw_next);
         
-        
         console.log(raw_next);
         console.log(next + " }");
         if (next in script){
@@ -53,7 +50,7 @@ async function read(script){
     }
 }
 
-fetch("novels/prototype_v1/behavior.json") // Загружает файл JSON
+fetch("behavior.json") // Загружает файл JSON
     .then(response => {
         // Обработка HTTP-ответа
         return response.json(); // Преобразет ответ в JSON и передаёт дальше
@@ -66,9 +63,7 @@ fetch("novels/prototype_v1/behavior.json") // Загружает файл JSON
         if (overlay) {
             overlay.parentNode.removeChild(overlay);
         }
-    }
-
-    )
+    })
     .catch(error => {
         // Обработка ошибок
         console.error('Ошибка загрузки файла:', error);
