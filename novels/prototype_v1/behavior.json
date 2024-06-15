@@ -12,7 +12,7 @@
         {
            "textContent": "Карусель-карусель",
            "color": "red",
-           "font-size": "72px",
+           "font-size": "6.67vmin",
            "border-style": "solid",
            "border-color": "#ffaa10",
            "border-width": "12px 0px 0px 0px"
@@ -83,10 +83,11 @@
         {
            "textContent": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
            "color": "red",
-           "font-size": "72px",
+           "font-size": "6.67vmin",
            "border-style": "solid",
            "border-color": "#ffaa10",
-           "border-width": "12px 0px 0px 0px"
+           "border-width": "12px 0px 0px 0px",
+           "background-color": "aqua"
         },
         [0]
     ],

@@ -6,7 +6,7 @@
    transition: filter 0.5s ease;
 }
 body {
-    font-size: 16pt;
+    font-size: 2vmin;
 }
 img{
     pointer-events: none;
