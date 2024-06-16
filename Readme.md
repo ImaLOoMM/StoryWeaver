@@ -18,14 +18,7 @@
 ### Новеллы хранятся в папке novels
 #### Имеется свой стандарт:
 
-**novels**
-$|-$ ***novel's name***
-$~~~~|-$ **assets**
-$~~~~|~~~~~|-$ **audio**
-$~~~~|~~~~~|-$ **img**
-$~~~~|~~~~~|-$ **video**
-$~~~~|-$ **behavior.json**
-$~~~~|-$ **start.html**
+**novels**<br>$|-$ ***novel's name***<br>$~~~~|-$ **assets**<br>$~~~~|~~~~~|-$ **audio**<br>$~~~~|~~~~~|-$ **img**<br>$~~~~|~~~~~|-$ **video**<br>$~~~~|-$ **behavior.json**<br>$~~~~|-$ **start.html**
 
 ---
 
