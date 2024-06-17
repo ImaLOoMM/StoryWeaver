@@ -1,8 +1,9 @@
 {
-    "name": "User",
+    "nickname": "asdasdasd",
     "sex": "Uncnown",
     "date": 4,
     "month": 3,
     "year": 1907,
-    "GMt": 0
+    "GMt": 0,
+    "avatar": "test.jpg"
 }

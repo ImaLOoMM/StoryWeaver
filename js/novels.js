@@ -1,6 +1,5 @@
 const fs = require('fs');
-// Путь к директории, где вы хотите получить список папок
-const directoryPath = '../novels';
+const directoryPath = '../novels'; // Путь к директории, где нужно получить список папок
 
 // Чтение содержимого директории
 fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
