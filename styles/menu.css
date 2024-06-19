@@ -149,6 +149,41 @@ a {
     width: auto;
 }
 
+#buttons {
+    display: flex;
+    flex-direction: column; /* Размещает кнопки вертикально */
+    align-items: center; /* Центрирует кнопки по горизонтали */
+    top: 0;
+    right: 0;
+    width: 83.4375%;
+    height: 100%;
+}
+
+#buttons * {
+    background-color: #00000000;
+    color: #FFFEFB;
+}
+
+#about-author {
+    top: 20%;
+}
+
+#b2 {
+    top: 35%; 
+}
+
+#b3 {
+    top: 50%; 
+}
+
+#b4 {
+    top: 65%; 
+}
+
+#b5 {
+    top: 80%; 
+}
+
 #start {
     left: 0;
     bottom: 0;

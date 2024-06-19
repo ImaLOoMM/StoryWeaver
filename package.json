@@ -9,6 +9,7 @@
   "author": "SW",
   "license": "ISC",
   "dependencies": {
+    "discord-rpc": "^4.0.1",
     "dompurify": "^3.1.5",
     "gif.js": "^0.2.0"
   },
