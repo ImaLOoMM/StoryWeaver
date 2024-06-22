@@ -2,27 +2,27 @@ const { app, BrowserWindow } = require('electron/main')
 const path = require('path');
 const url = require('url');
 const RPC = require('discord-rpc');
-const clientId = '1252967836851241021';
 
+const clientId = '1254071814897008691';
+const rpc = new RPC.Client({ transport: 'ipc' });
 RPC.register(clientId);
 
-const rpc = new RPC.Client({ transport: 'ipc' });
 
 rpc.on('ready', () => {
-    console.log('Rich Presence is ready');
+    console.log('Discord status has been changed');
   
     rpc.setActivity({
-      details: 'Использует мое приложение',
-      state: 'Работа в приложении',
+      state: 'Стоит в лобби',
       startTimestamp: new Date(),
-      largeImageKey: 'large_image',
-      largeImageText: 'Electron App',
-      smallImageKey: 'small_image',
-      smallImageText: 'App'
+      largeImageKey: 'swlogo-1024',
+    //   largeImageText: 'StoryWeaver',
+    //   smallImageKey: '',
+    //   smallImageText: 'App'
     });
   });
   
-  rpc.login({ clientId }).catch(console.error);
+rpc.login({ clientId }).catch(console.error);
+
 
 let win;
 
