@@ -34,3 +34,6 @@ button.addEventListener('click', function() {
     window.location.href = 'novels/prototype_v1/start.html'; // Временно ссылка статичная
 });
 
+// Изменение статуса дискорда в лобби
+const { startTime, UpdatingActivity} = require("./js/discord_status")
+UpdatingActivity("Сидит в лобби", startTime);

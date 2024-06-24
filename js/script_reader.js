@@ -1,6 +1,8 @@
 import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
 import { fill } from './user_funcions/colors.js'; // Awaits
 import { text } from './user_funcions/add.js'; // Awaits
+const { UpdatingActivity, startTime} = require("./../../js/discord_status")
+UpdatingActivity(`Проходит: ${document.title}`, startTime);
 
 // const body = document.getElementById('main-body');
 // const loading_img = document.getElementById('loading-progress');

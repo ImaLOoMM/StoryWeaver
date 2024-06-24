@@ -159,9 +159,15 @@ a {
     height: 100%;
 }
 
-#buttons * {
+.info-buttons {
     background-color: #00000000;
     color: #FFFEFB;
+    font-size: 3.5vmin;
+    transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
+}
+
+.info-buttons:hover {
+    font-size: 4vmin;
 }
 
 #about-author {

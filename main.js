@@ -1,28 +1,6 @@
 const { app, BrowserWindow } = require('electron/main')
 const path = require('path');
 const url = require('url');
-const RPC = require('discord-rpc');
-
-const clientId = '1254071814897008691';
-const rpc = new RPC.Client({ transport: 'ipc' });
-RPC.register(clientId);
-
-
-rpc.on('ready', () => {
-    console.log('Discord status has been changed');
-  
-    rpc.setActivity({
-      state: 'Стоит в лобби',
-      startTimestamp: new Date(),
-      largeImageKey: 'swlogo-1024',
-    //   largeImageText: 'StoryWeaver',
-    //   smallImageKey: '',
-    //   smallImageText: 'App'
-    });
-  });
-  
-rpc.login({ clientId }).catch(console.error);
-
 
 let win;
 
