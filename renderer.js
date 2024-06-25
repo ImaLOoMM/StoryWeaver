@@ -1,3 +1,6 @@
+const { ipcRenderer } = require('electron');
+
+
 document.addEventListener('click', (event) => {
     if (event.target.tagName === 'A' && event.target.href) {
       const url = new URL(event.target.href);
@@ -16,4 +19,10 @@ var buttons = document.querySelectorAll('button');
 // Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
 buttons.forEach(function(button) {
     button.setAttribute('tabindex', '-1');
+});
+
+
+// Получение пути к временному файлу из main.js
+ipcRenderer.invoke('get-temp-file-path').then(path => {
+    console.log('Temporary file path:', path);
 });

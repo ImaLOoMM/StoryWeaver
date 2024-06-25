@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <script type="module" src="main.js"></script>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-    <link rel="stylesheet" type="text/css" href="styles/menu.css">
-    <title>StoryWeaver</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <link rel="stylesheet" type="text/css" href="styles/menu.css">
+        <script src="renderer.js"></script>
+        <title>StoryWeaver</title>
+    </head>
 <body>
     <div id="menu">
         <div id="main-bar">
@@ -32,11 +33,11 @@
                 <img id="guidy" src="img/menu/info/guidy.png">
                 <div id="buttons">
 
-                    <button id="about-author" class="info-buttons">< Кнопка 1 ></button>
-                    <button id="b2" class="info-buttons">< Кнопка 2 ><button>
-                    <button id="b3" class="info-buttons">< Кнопка 3 ></button> 
-                    <button id="b4" class="info-buttons">< Кнопка 4 ></button> 
-                    <button id="b5" class="info-buttons">< Кнопка 5 ></button>
+                    <button id="about-author" class="info-buttons">< Об авторе ></button>
+                    <button id="b2" class="info-buttons">< Ещё главы ><button>
+                    <button id="b3" class="info-buttons">< Сборник книг ></button> 
+                    <button id="b4" class="info-buttons">< Книги автора ></button> 
+                    <button id="b5" class="info-buttons">< Больше инфо ></button>
                 </div>
                 
             </div>
@@ -53,7 +54,6 @@
         </div>
     </div>  
     <!--JS-->
-    <script src="renderer.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

@@ -35,5 +35,6 @@ button.addEventListener('click', function() {
 });
 
 // Изменение статуса дискорда в лобби
-const { startTime, UpdatingActivity} = require("./js/discord_status")
-UpdatingActivity("Сидит в лобби", startTime);
+const { UpdatingActivity, setActivity} = require("./js/discord_status")
+// setActivity({ details: "Сидит в лобби"})
+UpdatingActivity("Сидит в лобби");

@@ -1,8 +1,11 @@
-const { app, BrowserWindow } = require('electron/main')
+const { app, BrowserWindow, ipcMain } = require('electron/main')
 const path = require('path');
 const url = require('url');
+const tmp = require('tmp');
+const fs = require('fs');
 
 let win;
+let tmpFile;
 
 function createWindow() {
     win = new BrowserWindow({
@@ -53,11 +56,21 @@ function createWindow() {
 }
 
 // App ready event
-app.on('ready', createWindow);
+app.on('ready', () => {
+    createWindow()
+    const startTime = Date.now();
+    tmpFile = tmp.fileSync({ keep: true, postfix: '.txt' });
+    console.log('Temporary file created at:', tmpFile.name);
+
+    fs.writeFileSync(tmpFile.name, `${startTime}`);
+});
 
 // App window-all-closed event
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
+        tmpFile.removeCallback();
+        console.log('Temporary file deleted');
+        console.log("app was closed")
         app.quit();
     }
 });
@@ -67,4 +80,8 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow();
     }
+});
+
+ipcMain.handle('get-temp-file-path', () => {
+    return tmpFile.name;
 });
