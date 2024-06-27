@@ -1,10 +1,16 @@
 @font-face {
     font-family: 'inter';
     src: url('../fonts/Inter-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'inter';
+    src: url('../fonts/Inter-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
 
 * {
     margin: 0px;
@@ -14,10 +20,12 @@
     border-width: 0;
     background-repeat: no-repeat;
     overflow: hidden;
+    font-family: inter;
+    font-weight: 400;
 }
 
 body {
-    background-color: #005255;
+    background-color: #e1cfa7;
     background-image: url('../img/menu/background/background.jpg');
 }
 
@@ -48,21 +56,21 @@ a {
     position: absolute;
 }
 
-#main-bar {
+#novel-info {
     top: 0;
     left: 0;
-    width: 33.3333333%;
+    width: 24.8958333%;
     height: 100%;
 }
 
-#user-bar {
+#user-info {
     display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
     left: 0;
     width: 100%;
-    height: 6.574074%;
+    height: 6.4814815%;
     border-radius: 0 0.5em 0 0;
     background-color: #EA6465;
 }
@@ -94,7 +102,6 @@ a {
 #balance {
     color: #FFFEFB;
     font-size: 2.96vmin;
-    font-family: inter;
 }
 
 #user {
@@ -118,45 +125,41 @@ a {
 
 #nickname {
     white-space: nowrap;
-    font-family: inter;
     top: 9.375%;
     left: 17.1875%;
     font-size: 2.96vh;
     background-color: #00000000;
     color: #FFFEFB;
+    
 }
 
 #novel-name {
     left: 0;
     top: 6.6666667%;
     width: 100%;
-    height: 9.9074074%;
+    height: 9.8148148%;
     border-radius: 0;
     background-color: #EA6465;
 }
 
 #info-bar {
-    left: 0;
-    top: 16.6666667%;
-    width: 100%;
-    height: 66.48148148%;
-    background-color: #FFD670;
-}
-
-#guidy {
-    top: 5%;
-    height: 100%;
-    width: auto;
-}
-
-#buttons {
     display: flex;
     flex-direction: column; /* Размещает кнопки вертикально */
     align-items: center; /* Центрирует кнопки по горизонтали */
-    top: 0;
-    right: 0;
-    width: 83.4375%;
-    height: 100%;
+    left: 0;
+    top: 16.6666667%;
+    width: 100%;
+    height: 66.6666666%;
+    background-color: #FFD670;
+}
+
+#novel-progress {
+    top: 3.75%;
+    background-color: #00000000;
+    color: #FFFEFB;
+    font-size: 3.5vmin;
+    transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
+    
 }
 
 .info-buttons {
@@ -171,30 +174,81 @@ a {
 }
 
 #about-author {
-    top: 20%;
+    top: 18.75%;
 }
 
 #b2 {
-    top: 35%; 
+    top: 31.25%; 
 }
 
 #b3 {
-    top: 50%; 
+    top: 43.75%; 
 }
 
 #b4 {
-    top: 65%; 
+    top: 56.25%; 
 }
 
 #b5 {
-    top: 80%; 
+    top: 68.75%; 
 }
+
+#statistic {
+    top: 82.2222222%;
+    width: 63.3891213%;
+    height: 13.0555555%;
+}
+
+.statistic-info {
+    display: flex;
+    align-items: center; /* Центрирует кнопки по горизонтали */
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.statistic-info p {
+    color: #FFFEFB;
+    font-size: 3vmin;
+    bottom: 0;
+}
+
+
+#likes-bar {
+    top: 0;
+    left: 0;
+    width: 23.7623762%;
+    height: 100%;
+}
+
+#likes {
+    top: 0;
+    height: 54%;
+    width: auto;
+}
+
+#views-bar {
+    top: 0;
+    right: 0;
+    width: 23.7623762%;
+    height: 100%;
+}
+
+#views {
+    top: 6.3593005%;
+    width: 93.5%;
+    height: auto;
+}
+
+
 
 #start {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 16.6666667%;
+    height: 16.4814815%;
     border-radius: 0 0 0.5em 0;
     background-color: #ABC4FF;
 }
@@ -205,7 +259,7 @@ a {
     width: 100%;
     height: 100%;
     border-radius: 0 0 0.5em 0;
-    font-size: 10vmin;
+    font-size: 7vmin;
     color: #394053;
     background-color: #ABC4FF;
 }
@@ -213,7 +267,7 @@ a {
 #select {
     top: 0;
     right: 0;
-    width: 66.5625%;
+    width: 75%;
     height: 100%;
 }
 

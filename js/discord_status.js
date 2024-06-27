@@ -55,6 +55,7 @@ function time_representation() {  // Удобное изменение врем�
 function setActivity(values = {details: "", smallImageKey: ""}) {
     values["largeImageKey"] = "swlogo-1024"; // Большое изображение не меняется
     values["state"] = time_representation(); // Время обновляется само
+    values["details"] = "а он с демкой :P" // НЕ ЗАБУДЬ УБРАТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const filteredValues = Object.fromEntries(
         Object.entries(values).filter(([_, v]) => v !== "")
@@ -74,7 +75,7 @@ rpc.login({ clientId }).catch(console.error);
 function UpdatingActivity(details) {
     setInterval(() => {
     setActivity({ details: details });
-    console.log("[discored-rpc]: Activity has been updated")
+    console.log("[discored-rpc]: has been updated")
     }, 3e3); // обновление каждую минуту
 }
 

@@ -11,10 +11,9 @@
     </head>
 <body>
     <div id="menu">
-        <div id="main-bar">
-            <div id="user-bar">
+        <div id="novel-info">
+            <div id="user-info">
                 <button id="user">
-                    <!-- <img id="avatar" rsc="user/avatar/test.jpg"> -->
                     <div id="avatar"></div>
                     <p id="nickname"></p>
                 </button>
@@ -30,18 +29,25 @@
             <div id="novel-name"> </div>
 
             <div id="info-bar">
-                <img id="guidy" src="img/menu/info/guidy.png">
-                <div id="buttons">
-
-                    <button id="about-author" class="info-buttons">< Об авторе ></button>
-                    <button id="b2" class="info-buttons">< Ещё главы ><button>
-                    <button id="b3" class="info-buttons">< Сборник книг ></button> 
-                    <button id="b4" class="info-buttons">< Книги автора ></button> 
-                    <button id="b5" class="info-buttons">< Больше инфо ></button>
+                <!-- <button id="about-author" class="info-buttons">перейти к продолжению</button> -->
+                <p id="novel-progress">Не пройдено</p>
+                <button id="about-author" class="info-buttons"> Об авторе</button>
+                <button id="b2" class="info-buttons"> Ещё главы<button>
+                <button id="b3" class="info-buttons"> Сборник книг</button> 
+                <button id="b4" class="info-buttons"> Книги автора</button> 
+                <button id="b5" class="info-buttons"> Больше инфо</button>
+                <div id="statistic">
+                    <div class="statistic-info" id="likes-bar">
+                        <img src="img/menu/info/likes.png" id="likes">
+                        <p>38K</p>
+                    </div>
+                    <div class="statistic-info" id="views-bar">
+                        <img src="img/menu/info/views.png" id="views">
+                        <p>192K</p>
+                    </div>
                 </div>
-                
             </div>
-
+            
             <div id="start">
                 <button id="start-button">Старт</button>
             </div>
