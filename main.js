@@ -36,7 +36,7 @@ function createWindow() {
             // Предотвращаем дальнейшее действие по умолчанию
             event.preventDefault();
         }
-        // Отключить возможность заново открыть панель разработчика
+        // // Отключить возможность заново открыть панель разработчика
         // if (input.control && input.shift && input.key.toLowerCase() === 'i') {
         //     event.preventDefault();
         // }

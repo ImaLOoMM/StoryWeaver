@@ -24,6 +24,12 @@
     font-weight: 400;
 }
 
+button:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
 body {
     background-color: #e1cfa7;
     background-image: url('../img/menu/background/background.jpg');
@@ -56,14 +62,14 @@ a {
     position: absolute;
 }
 
-#novel-info {
+#novel-overview {
     top: 0;
     left: 0;
     width: 24.8958333%;
     height: 100%;
 }
 
-#user-info {
+#author-info {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,7 +110,7 @@ a {
     font-size: 2.96vmin;
 }
 
-#user {
+#author {
     left: 1.69014085%;
     width: 60%;
     height: 67.6056338%;
@@ -112,7 +118,7 @@ a {
     
 }
 
-#avatar {
+#author-avatar {
     top: 0;
     left: 0;
     height: 100%;
@@ -123,7 +129,7 @@ a {
     background-color: #00000000;
 }
 
-#nickname {
+#authornickname {
     white-space: nowrap;
     top: 9.375%;
     left: 17.1875%;
@@ -199,6 +205,10 @@ a {
     height: 13.0555555%;
 }
 
+#statistic * {
+    overflow: visible;
+}
+
 .statistic-info {
     display: flex;
     align-items: center; /* Центрирует кнопки по горизонтали */
@@ -206,7 +216,6 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    
 }
 
 .statistic-info p {
@@ -243,7 +252,6 @@ a {
 }
 
 
-
 #start {
     left: 0;
     bottom: 0;
@@ -264,42 +272,76 @@ a {
     background-color: #ABC4FF;
 }
 
-#select {
+
+
+
+#main {
     top: 0;
     right: 0;
     width: 75%;
     height: 100%;
 }
 
-#options {
-    top: 0;
-    right: 0;
+.main-blocks {
     width: 100%;
+    right: 0;
+}
+
+#options {
+    display: flex;
+    align-items: center;
+    top: 0;
     height: 6.574074%;
     border-radius: 0.5em 0 0 0;
     background-color: #FFFEFB33;
 }
 
+#profile-block {
+    right: 0.4%;
+    width: 21.25%;
+    height: 80%;
+    border-radius: 1em;
+    background-color: #A18594;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    background-color: #00000000;
+}
+
+#user-avatar {
+    left: 2%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100vmin;
+    background-color: #00000000;
+}
+
+#user-nickname {
+    right: 0;
+    font-size: 3vmin;
+    color: #FFFEFB;
+}
+
+
 #novel-filter {
     top: 6.6666667%;
-    right: 0;
-    width: 100%;
     height: 9.9074074%;
     background-color: #FFFEFB33;
 }
 
 #novel-select {
     top: 16.6666667%;
-    right: 0;
-    width: 100%;
     height: 66.48148148%;
     background-color: #FFFEFB33;
 }
 
 #novel-options {
     bottom: 0;
-    right: 0;
-    width: 100%;
     height: 16.6666667%;
     border-radius: 0 0 0 0.5em;
     background-color: #FFFEFB33;

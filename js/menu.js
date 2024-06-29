@@ -2,7 +2,7 @@ fetch('user/data.json')
             .then(response => response.json())
             .then(data => {
                 // avatar
-                avatar = document.getElementById("avatar");
+                avatar = document.getElementById("user-avatar");
                 if (data["avatar"]) {
                     avatar.rsc = "user/avatar/" + data["avatar"];
                     avatar.style["background-image"] = 'url("user/avatar/' + data["avatar"] + '")';
@@ -22,7 +22,7 @@ fetch('user/data.json')
                 }
 
                 // Nickname
-                document.getElementById("nickname").innerText = data["nickname"]
+                document.getElementById("user-nickname").innerText = data["nickname"]
                 
             })
             .catch(error => console.error('Error fetching the JSON:', error));
@@ -34,7 +34,17 @@ button.addEventListener('click', function() {
     window.location.href = 'novels/prototype_v1/start.html'; // Временно ссылка статичная
 });
 
+function setWidthEqualToHeight(elementId) {
+    var element = document.getElementById(elementId);
+    if (element) {
+        var heightInPixels = element.offsetHeight;
+        element.style.width = heightInPixels + 'px';
+    }
+}
+
+setWidthEqualToHeight("user-avatar")
+
 // Изменение статуса дискорда в лобби
-const { UpdatingActivity, setActivity} = require("./js/discord_status")
+const { UpdatingActivity, setActivity } = require("./js/discord_status")
 // setActivity({ details: "Сидит в лобби"})
 UpdatingActivity("Сидит в лобби");

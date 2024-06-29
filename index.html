@@ -11,18 +11,18 @@
     </head>
 <body>
     <div id="menu">
-        <div id="novel-info">
-            <div id="user-info">
-                <button id="user">
-                    <div id="avatar"></div>
-                    <p id="nickname"></p>
+        <div id="novel-overview">
+            <div id="author-info">
+                <button id="author">
+                    <div id="author-avatar"></div>
+                    <span id="author-nickname"></span>
                 </button>
 
-                <div id="balance-bar">
+                <!-- <div id="balance-bar">
                     <img src="img/menu/balance/top_up.svg" id="top-up">
                     <img src="img/menu/balance/coin.svg" id="coin">
                     <p id="balance">140.60</p>
-                </div>
+                </div> -->
                 
             </div>
 
@@ -52,11 +52,35 @@
                 <button id="start-button">Старт</button>
             </div>
         </div>
-        <div id="select">
-            <div id="options"> </div>
-            <div id="novel-filter"> </div>
-            <div id="novel-select"> </div>
-            <div id="novel-options"> </div>
+
+
+        
+        <div id="main">
+            <div id="options" class="main-blocks">
+                <div id="profile-block">
+                    <button id="user-info">
+                        <div id="user-avatar"></div>
+                        <span id="user-nickname">UserName</span>
+                    </button>
+
+                    <button id="balance-info">
+                       <p id="user-balance">$100</p>
+                    </button>
+                </div>
+            </div>
+
+            <div id="novel-filter" class="main-blocks">
+
+            </div>
+
+            <div id="novel-select" class="main-blocks">
+
+            </div>
+
+            <div id="novel-options" class="main-blocks">
+                
+            </div>
+
         </div>
     </div>  
     <!--JS-->
