@@ -36,7 +36,7 @@ function createWindow() {
             // Предотвращаем дальнейшее действие по умолчанию
             event.preventDefault();
         }
-        // // Отключить возможность заново открыть панель разработчика
+        // Отключить возможность заново открыть панель разработчика
         // if (input.control && input.shift && input.key.toLowerCase() === 'i') {
         //     event.preventDefault();
         // }
@@ -48,7 +48,7 @@ function createWindow() {
         slashes: true
     }));
 
-    win.webContents.openDevTools(); // DevTools
+    // win.webContents.openDevTools(); // DevTools
 
     win.on('closed', () => {
         win = null;

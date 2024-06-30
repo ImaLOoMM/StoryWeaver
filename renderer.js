@@ -14,15 +14,18 @@ document.addEventListener('click', (event) => {
     }
 });
 
-var buttons = document.querySelectorAll('button');
 
-// Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
-buttons.forEach(function(button) {
-    button.setAttribute('tabindex', '-1');
-});
+// // Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
+// var buttons = document.querySelectorAll('button');
+// buttons.forEach(function(button) {
+//     button.setAttribute('tabindex', '-1');
+// });
 
 
-// Получение пути к временному файлу из main.js
-ipcRenderer.invoke('get-temp-file-path').then(path => {
-    console.log('Temporary file path:', path);
+window.addEventListener('keydown', (event) => {
+    // Check if Ctrl (Cmd on macOS) + F5 was pressed
+    if ((event.ctrlKey || event.metaKey) && event.key === 'F5') {
+        // Reload the current page
+        window.location.reload(true); // true параметр для полной перезагрузки страницы с сервера
+    }
 });
