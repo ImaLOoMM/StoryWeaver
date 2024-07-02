@@ -28,4 +28,7 @@ window.addEventListener('keydown', (event) => {
         // Reload the current page
         window.location.reload(true); // true параметр для полной перезагрузки страницы с сервера
     }
+    if (((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === '+') || ((event.ctrlKey || event.metaKey) && event.key === '-')) {
+        event.preventDefault();
+    }
 });
