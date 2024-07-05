@@ -31,9 +31,12 @@ textarea:focus {
 }
 
 body {
-    background-color: #e1cfa7;
+    background-color: #363a3f;
     background-size: 100%;
-    background-image: url('../img/menu/background/background.jpg');
+    /* background-image: url('../img/menu/background/background.jpg'); */
+    background-image: url('../img/menu/background/repeated.jpg');
+    /* background-size: 10%; */
+    background-repeat: repeat;
 }
 
 img{
@@ -44,6 +47,10 @@ a {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.left-panel {
+    background-color: #1f22258a;
 }
 
 #menu {
@@ -79,7 +86,7 @@ a {
     width: 100%;
     height: 6.4814815%;
     border-radius: 0 0.5em 0 0;
-    background-color: #EA6465;
+    /* background-color: #EA6465; */
 }
 
 #author {
@@ -117,7 +124,7 @@ a {
     width: 100%;
     height: 9.8148148%;
     border-radius: 0;
-    background-color: #EA6465;
+    /* background-color: #EA6465; */
 }
 
 #info-bar {
@@ -128,13 +135,13 @@ a {
     top: 16.6666667%;
     width: 100%;
     height: 66.6666666%;
-    background-color: #FFD670;
+    /* background-color: #FFD670; */
 }
 
 #novel-progress {
     top: 3.75%;
     background-color: #00000000;
-    color: #FFFEFB;
+    color: #adadad;
     font-size: 3.5vmin;
     transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
     
@@ -142,7 +149,7 @@ a {
 
 .info-buttons {
     background-color: #00000000;
-    color: #FFFEFB;
+    color: #adadad;
     font-size: 3.5vmin;
     transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
 }
@@ -230,7 +237,7 @@ a {
     width: 100%;
     height: 16.4814815%;
     border-radius: 0 0 0.5em 0;
-    background-color: #ABC4FF;
+    /* background-color: #ABC4FF; */
 }
 
 #start-button {
@@ -241,7 +248,7 @@ a {
     border-radius: 0 0 0.5em 0;
     font-size: 7vmin;
     color: #394053;
-    background-color: #ABC4FF;
+    background-color: #00000000;
 }
 
 
@@ -257,6 +264,7 @@ a {
 .main-blocks {
     width: 100%;
     right: 0;
+    /* background-color: #FFFEFB33; */
 }
 
 #options {
@@ -265,7 +273,7 @@ a {
     top: 0;
     height: 6.574074%;
     border-radius: 0.5em 0 0 0;
-    background-color: #FFFEFB33;
+    
 }
 
 #profile-block {
@@ -273,7 +281,7 @@ a {
     width: 15%;
     height: 80%;
     border-radius: 1em;
-    background-color: #A18594;
+    background-color: #383d49;
 }
 
 #user-info {
@@ -310,18 +318,15 @@ a {
 #novel-filter {
     top: 6.6666667%;
     height: 9.9074074%;
-    background-color: #FFFEFB33;
 }
 
 #novel-select {
     top: 16.6666667%;
     height: 66.48148148%;
-    background-color: #FFFEFB33;
 }
 
 #novel-options {
     bottom: 0;
     height: 16.6666667%;
     border-radius: 0 0 0 0.5em;
-    background-color: #FFFEFB33;
 }
