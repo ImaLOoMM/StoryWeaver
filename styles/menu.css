@@ -33,9 +33,7 @@ textarea:focus {
 body {
     background-color: #363a3f;
     background-size: 100%;
-    /* background-image: url('../img/menu/background/background.jpg'); */
     background-image: url('../img/menu/background/repeated.jpg');
-    /* background-size: 10%; */
     background-repeat: repeat;
 }
 
@@ -86,7 +84,6 @@ a {
     width: 100%;
     height: 6.4814815%;
     border-radius: 0 0.5em 0 0;
-    /* background-color: #EA6465; */
 }
 
 #author {
@@ -124,34 +121,32 @@ a {
     width: 100%;
     height: 9.8148148%;
     border-radius: 0;
-    /* background-color: #EA6465; */
 }
 
 #info-bar {
     display: flex;
-    flex-direction: column; /* Размещает кнопки вертикально */
-    align-items: center; /* Центрирует кнопки по горизонтали */
+    flex-direction: column;
+    align-items: center;
     left: 0;
     top: 16.6666667%;
     width: 100%;
     height: 66.6666666%;
-    /* background-color: #FFD670; */
 }
 
 #novel-progress {
     top: 3.75%;
     background-color: #00000000;
-    color: #adadad;
+    color: #ebebeb;
     font-size: 3.5vmin;
-    transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
+    transition: font-size 0.3s ease;
     
 }
 
 .info-buttons {
     background-color: #00000000;
-    color: #adadad;
+    color: #ebebeb;
     font-size: 3.5vmin;
-    transition: font-size 0.3s ease; /* Переходный эффект для размера шрифта */
+    transition: font-size 0.3s ease;
 }
 
 .info-buttons:hover {
@@ -237,7 +232,6 @@ a {
     width: 100%;
     height: 16.4814815%;
     border-radius: 0 0 0.5em 0;
-    /* background-color: #ABC4FF; */
 }
 
 #start-button {
@@ -247,7 +241,7 @@ a {
     height: 100%;
     border-radius: 0 0 0.5em 0;
     font-size: 7vmin;
-    color: #394053;
+    color: #ebebeb;
     background-color: #00000000;
 }
 
@@ -264,7 +258,6 @@ a {
 .main-blocks {
     width: 100%;
     right: 0;
-    /* background-color: #FFFEFB33; */
 }
 
 #options {
@@ -302,7 +295,6 @@ a {
 }
 
 #user-nickname {
-    /* right: 0; */
     font-size: 3vmin;
     color: #FFFEFB;
 }
@@ -323,7 +315,65 @@ a {
 #novel-select {
     top: 16.6666667%;
     height: 66.48148148%;
+    overflow-y: auto; /* Вертикальная прокрутка */
+    justify-content: center;
 }
+
+.new-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* соотношение размера обложки 2/11 */
+    width: 21.25%;
+    height: 58.4375%;
+    background-size: contain;
+    background-color: #00000000;
+    overflow:visible;
+}
+
+.previewImage {
+    width: 91%;
+    height: 91%;
+    transition: transform 0.3s ease;
+}
+
+.new-container:hover .previewImage {
+    transform: scale(1.1);
+}
+
+.new-container div {
+    width: 90.9%;
+    height: 90.9%;
+    transition: box-shadow 0.3s ease;
+}
+
+.new-container:hover div {
+    box-shadow: 0 0 3px 3vmin rgba(0, 0, 0, 0.5);
+}
+
+
+#novel-select::-webkit-scrollbar {
+    width: 4px; /* Ширина скроллбара */
+    border-radius: 5em;
+}
+  
+  /* Track (след) - путь, по которому движется ползунок */
+#novel-select::-webkit-scrollbar-track {
+    background: #1f22258a; /* Цвет фона */
+    border-radius: 5em;
+}
+  
+  /* Handle (ползунок) - сам ползунок */
+#novel-select::-webkit-scrollbar-thumb {
+    background: #565f66; /* Цвет ползунка */
+    border-radius: 5em; /* Скругление углов ползунка */
+}
+  
+  /* Handle при наведении */
+#novel-select::-webkit-scrollbar-thumb:hover {
+    background: #626c74; /* Цвет ползунка при наведении */
+}
+
 
 #novel-options {
     bottom: 0;
