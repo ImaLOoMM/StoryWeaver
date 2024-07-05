@@ -32,9 +32,6 @@ textarea:focus {
 
 body {
     background-color: #363a3f;
-    background-size: 100%;
-    background-image: url('../img/menu/background/repeated.jpg');
-    background-repeat: repeat;
 }
 
 img{
@@ -49,6 +46,7 @@ a {
 
 .left-panel {
     background-color: #1f22258a;
+    backdrop-filter: blur(5px);
 }
 
 #menu {
@@ -61,7 +59,11 @@ a {
     min-height: 100%;
     max-width: 100%;
     max-height: 100%;
-    
+
+    background-size: 100%;
+    background-image: url('../img/menu/background/repeated.jpg');
+    background-position: 0 0;
+    background-repeat: repeat;
 }
 
 #menu *{
@@ -260,6 +262,12 @@ a {
     right: 0;
 }
 
+.main-static-blocks {
+    background-color: #1f22258a;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
 #options {
     display: flex;
     align-items: center;
@@ -313,22 +321,30 @@ a {
 }
 
 #novel-select {
-    top: 16.6666667%;
-    height: 66.48148148%;
-    overflow-y: auto; /* Вертикальная прокрутка */
-    justify-content: center;
+    z-index: 0;
+    /* top: 16.6666667%;
+    height: 66.48148148%; */
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    /* background-image: url('../img/menu/background/repeated.jpg');
+    background-repeat: repeat;
+    background-size: 20%;
+    background-attachment: scroll; */
 }
 
 .new-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* соотношение размера обложки 2/11 */
-    width: 21.25%;
-    height: 58.4375%;
+    /* width: 21.25%;
+    height: 58.4375%; */
+    /* соотношение размера обложки 17/24 */
+    width: 28.1548506vmin;
+    height: 39.7480244vmin;
     background-size: contain;
     background-color: #00000000;
-    overflow:visible;
+    overflow: visible;
 }
 
 .previewImage {
@@ -348,7 +364,7 @@ a {
 }
 
 .new-container:hover div {
-    box-shadow: 0 0 3px 3vmin rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2vmin 3vmin rgba(0, 0, 0, 0.5);
 }
 
 

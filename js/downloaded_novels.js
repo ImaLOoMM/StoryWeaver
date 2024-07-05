@@ -33,7 +33,7 @@ async function f () {
         newContainer.classList.add('new-container');
         previewImage.classList.add('previewImage');
         previewImage.src = `novels/${novel_name}/preview/preview.jpg`;
-        newContainer.style.top = Math.floor(index/4) * 65 + 4 + "%";
+        newContainer.style.top = Math.floor(index/4) * 43.212962963 + 18.6148148144 + "vmin";
         newContainer.style.left = index % 4 * 20 + (index % 4 + 1) * 4 + "%";
     });
 };
