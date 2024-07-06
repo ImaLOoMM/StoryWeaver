@@ -24,6 +24,28 @@
     font-weight: 400;
 }
 
+*::-webkit-scrollbar {
+    width: 4px; /* Ширина скроллбара */
+    border-radius: 5em;
+}
+
+/* путь, по которому движется ползунок */
+*::-webkit-scrollbar-track {
+    background: #1f22258a; /* Цвет фона */
+    border-radius: 5em;
+}
+
+/* Handle - сам ползунок */
+*::-webkit-scrollbar-thumb {
+    background: #565f66; /* Цвет ползунка */
+    border-radius: 5em; /* Скругление углов ползунка */
+}
+
+/* Handle при наведении */
+*::-webkit-scrollbar-thumb:hover {
+    background: #626c74; /* Цвет ползунка при наведении */
+}
+
 button:focus,
 input:focus,
 textarea:focus {
@@ -42,11 +64,6 @@ a {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     user-select: none;
-}
-
-.left-panel {
-    background-color: #1f22258a;
-    backdrop-filter: blur(5px);
 }
 
 #menu {
@@ -73,8 +90,14 @@ a {
 #novel-overview {
     top: 0;
     left: 0;
-    width: 24.8958333%;
+    width: 25%;
     height: 100%;
+    
+}
+
+.left-panel {
+    background-color: #1f22258a;
+    backdrop-filter: blur(5px);
 }
 
 #author-info {
@@ -84,7 +107,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 6.4814815%;
+    height: 6.6666667%;
     border-radius: 0 0.5em 0 0;
 }
 
@@ -121,7 +144,7 @@ a {
     left: 0;
     top: 6.6666667%;
     width: 100%;
-    height: 9.8148148%;
+    height: 10%;
     border-radius: 0;
 }
 
@@ -232,7 +255,7 @@ a {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 16.4814815%;
+    height: 16.6666667%;
     border-radius: 0 0 0.5em 0;
 }
 
@@ -272,8 +295,8 @@ a {
     display: flex;
     align-items: center;
     top: 0;
-    height: 6.574074%;
-    border-radius: 0.5em 0 0 0;
+    height: 6.6666667%;
+    border-radius: 0.5em 0 0 0.5em;
     
 }
 
@@ -315,22 +338,11 @@ a {
     font-size: 3vmin;
 }
 
-#novel-filter {
-    top: 6.6666667%;
-    height: 9.9074074%;
-}
-
 #novel-select {
     z-index: 0;
-    /* top: 16.6666667%;
-    height: 66.48148148%; */
     top: 0;
     height: 100%;
     overflow-y: auto;
-    /* background-image: url('../img/menu/background/repeated.jpg');
-    background-repeat: repeat;
-    background-size: 20%;
-    background-attachment: scroll; */
 }
 
 .new-container {
@@ -365,34 +377,4 @@ a {
 
 .new-container:hover div {
     box-shadow: 0 0 2vmin 3vmin rgba(0, 0, 0, 0.5);
-}
-
-
-#novel-select::-webkit-scrollbar {
-    width: 4px; /* Ширина скроллбара */
-    border-radius: 5em;
-}
-  
-  /* Track (след) - путь, по которому движется ползунок */
-#novel-select::-webkit-scrollbar-track {
-    background: #1f22258a; /* Цвет фона */
-    border-radius: 5em;
-}
-  
-  /* Handle (ползунок) - сам ползунок */
-#novel-select::-webkit-scrollbar-thumb {
-    background: #565f66; /* Цвет ползунка */
-    border-radius: 5em; /* Скругление углов ползунка */
-}
-  
-  /* Handle при наведении */
-#novel-select::-webkit-scrollbar-thumb:hover {
-    background: #626c74; /* Цвет ползунка при наведении */
-}
-
-
-#novel-options {
-    bottom: 0;
-    height: 16.6666667%;
-    border-radius: 0 0 0 0.5em;
 }
