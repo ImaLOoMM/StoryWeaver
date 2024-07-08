@@ -1,8 +1,11 @@
 var nickname;
-const nicknameElement = document.getElementById("user-nickname");
+var vminValue = Math.min(window.innerWidth, window.innerHeight) / 100;
+let nicknameElement;
 const avatarElement = document.getElementById("user-avatar");
 const balanceElement = document.getElementById("user-balance");
-var vminValue = Math.min(window.innerWidth, window.innerHeight) / 100;
+let userInfo = document.getElementById("user-info");
+let ProfileBlock = document.getElementById("profile-block");
+let avatarWidth = setWidthEqualToHeight(avatarElement);
 
 fetch('user/data.json')
     .then(response => response.json())
@@ -10,8 +13,10 @@ fetch('user/data.json')
 
         // Nickname
         nickname = data["nickname"]
-        document.getElementById("user-nickname").innerText = nickname
-
+        document.getElementById("user-nickname").innerText = nickname;
+        console.log(nickname);
+        nicknameElement = document.getElementById("user-nickname");
+        nicknameWidth = nicknameElement.offsetWidth;
 
         // avatar
         if (data["avatar"]) {
@@ -34,14 +39,12 @@ fetch('user/data.json')
     })
     .then(() => {
         // Правильное расположение элементов в мини-профиле пользователя
-        let userInfo = document.getElementById("user-info");
-        let ProfileBlock = document.getElementById("profile-block");
-        avatarWidth = setWidthEqualToHeight(avatarElement);
-        
-        nicknameWidth = nicknameElement.offsetWidth;
         avatarElement.style.left = (0.1 * avatarWidth) / vminValue + "vmin";
         nicknameElement.style.left = (0.2 * avatarWidth + avatarWidth) / vminValue + "vmin";
-        userInfo.style.width = balanceElement.style.left = (0.2 * avatarWidth + avatarWidth + nicknameWidth) / vminValue + "vmin";
+        userInfo.style.width = balanceElement.style.left = (1.2 * avatarWidth + nicknameWidth) / vminValue + "vmin";
+    })
+    .then(() => {
+        // Фикс тупого бага
         ProfileBlock.style.width = (userInfo.offsetWidth + balanceElement.offsetWidth + 0.15 * avatarWidth) / vminValue + "vmin";
     })
     .catch(error => console.error('Error fetching the JSON:', error));
@@ -49,7 +52,7 @@ fetch('user/data.json')
 
 
 // Изменение статуса дискорда в лобби
-const { UpdatingActivity, setActivity } = require("./js/discord_status")
+const { UpdatingActivity } = require("./js/discord_status")
 // setActivity({ details: "Сидит в лобби"})
 UpdatingActivity("Сидит в лобби");
 

@@ -302,7 +302,7 @@ a {
 
 #profile-block {
     right: 0.4%;
-    width: 15%;
+    /* width: 15%; */
     height: 80%;
     border-radius: 1em;
     background-color: #383d49;

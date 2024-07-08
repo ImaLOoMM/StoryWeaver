@@ -15,7 +15,7 @@ function createWindow() {
         icon: __dirname + "/img/logo/swlogo.png",
         webPreferences: {
             nodeIntegration: true, // Разрешение на использование node.js API в рендер процессах
-            contextIsolation: false, // Включение доступа к DOM API в рендер процессах
+            contextIsolation: true, // Включение доступа к DOM API в рендер процессах
             enableRemoteModule: true, // Разрешение на использование remote модуля в рендер процессах
             sandbox: false, // Отключение песочницы для полного доступа к API Node.js
             webSecurity: true, // Включение веб-безопасности
@@ -85,3 +85,4 @@ app.on('activate', () => {
 ipcMain.handle('get-temp-file-path', () => {
     return tmpFile.name;
 });
+
