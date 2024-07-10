@@ -52,8 +52,9 @@ fetch('user/data.json')
 
 
 // Изменение статуса дискорда в лобби
-const { UpdatingActivity } = require("./js/discord_status")
+// const { UpdatingActivity } = require("./js/discord_status")
 // setActivity({ details: "Сидит в лобби"})
+const { UpdatingActivity } = window.api;
 UpdatingActivity("Сидит в лобби");
 
 // Если пользователь нажимает на Старт

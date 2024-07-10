@@ -1,9 +1,12 @@
-const RPC = require('discord-rpc');
+const { contextBridge, ipcRenderer } = require('electron');
 const fs = require('fs');
-// const startTime = Date.now();
+const path = require('path');
+const RPC = require("discord-rpc");
+
+
+// Загрузка дискорда
 const clientId = '1254071814897008691'; // Client ID
 const rpc = new RPC.Client({ transport: 'ipc' });
-
 
 let startTime;
 
@@ -26,7 +29,7 @@ getTempFilePath().then((path) => {
 
     rpc.login({ clientId }).catch(console.error);
 });
-// const startTime = Date.now();
+
 RPC.register(clientId);
 
 
@@ -74,11 +77,23 @@ rpc.login({ clientId }).catch(console.warn);
 
 function UpdatingActivity(details) {
     setInterval(() => {
-    setActivity({ details: details });
-    console.log("[discored-rpc]: Discord activity has been updated")
-    }, 3e3); // обновление каждую минуту
+        setActivity({ details: details });
+        console.log("[discord-rpc]: Discord activity has been updated");
+    }, 3e3); // Обновление каждые 3 секунды
 }
 
-module.exports = {
-    UpdatingActivity, setActivity
-};
+
+
+
+
+contextBridge.exposeInMainWorld('api', {
+  readFile: (filePath) => fs.readFileSync(filePath, 'utf-8'),
+  pathJoin: (...args) => path.join(...args),
+//   readdir: (srcPath, options, callback) => fs.readdir(srcPath, options, callback)
+  readdir: (srcPath, options, callback) => { return fs.readdir(srcPath, options, callback) },
+  readFileSync: (filePath) => fs.readFileSync(filePath, 'utf-8'),
+  IsDir: (arg) => { return fs.statSync(arg).isDirectory(); },
+  invoke: (channel, data) => ipcRenderer.invoke(channel, data),
+  on: (channel, listener) => ipcRenderer.on(channel, listener),
+  UpdatingActivity
+});

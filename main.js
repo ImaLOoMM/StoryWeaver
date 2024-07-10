@@ -14,9 +14,10 @@ function createWindow() {
         frame: false,
         icon: __dirname + "/img/logo/swlogo.png",
         webPreferences: {
-            nodeIntegration: true, // Разрешение на использование node.js API в рендер процессах
+            preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: false, // Разрешение на использование node.js API в рендер процессах
             contextIsolation: true, // Включение доступа к DOM API в рендер процессах
-            enableRemoteModule: true, // Разрешение на использование remote модуля в рендер процессах
+            enableRemoteModule: false, // Разрешение на использование remote модуля в рендер процессах
             sandbox: false, // Отключение песочницы для полного доступа к API Node.js
             webSecurity: true, // Включение веб-безопасности
             allowRunningInsecureContent: false, // Запрещение запуска небезопасного контента

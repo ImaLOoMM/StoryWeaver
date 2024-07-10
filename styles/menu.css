@@ -202,6 +202,7 @@ a {
     top: 82.2222222%;
     width: 63.3891213%;
     height: 13.0555555%;
+    overflow: visible;
 }
 
 #statistic * {
@@ -246,8 +247,10 @@ a {
 
 #views {
     top: 6.3593005%;
-    width: 93.5%;
-    height: auto;
+    /* width: 93.5%;
+    height: auto; */
+    height: 40.4472226%;
+    width: auto;
 }
 
 
