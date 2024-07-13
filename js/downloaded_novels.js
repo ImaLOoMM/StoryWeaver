@@ -38,8 +38,8 @@ async function f () {
         previewImage.classList.add('previewImage');
         previewImage.src = `novels/${novel_folder_name}/preview/preview.jpg`;
         newContainer.style.top = Math.floor(index/4) * 29.9322916666875 + 10.470833333099998 + "vw";
-        newContainer.style.left = index % 4 * 20 + (index % 4 + 1) * 4 + "%";
-        // newContainer.style.left = (index % 4 + 1) / 5 * 100 - parseFloat(newContainer.style.width) / 2 + "%"
+        newContainer.style.left = (index % 4) * 21.25 + (index % 4 + 1) * 3 + "%";
+        newContainer.style.height = newContainer.offsetWidth * 100 * 24 / 17 / window.innerWidth + "vw";
     });
 };
 

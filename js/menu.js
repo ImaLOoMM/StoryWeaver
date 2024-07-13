@@ -1,5 +1,6 @@
 var nickname;
 var vminValue = Math.min(window.innerWidth, window.innerHeight) / 100;
+var vmaxValue = Math.max(window.innerWidth, window.innerHeight) / 100;
 let nicknameElement;
 const avatarElement = document.getElementById("user-avatar");
 const balanceElement = document.getElementById("user-balance");

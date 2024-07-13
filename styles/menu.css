@@ -352,11 +352,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 21.25%;
-    height: 58.4375%; */
     /* соотношение размера обложки 17/24 */
-    width: 28.1548506vmin;
-    height: 39.7480244vmin;
+    width: 21.25%;
     background-size: contain;
     background-color: #00000000;
     overflow: visible;
