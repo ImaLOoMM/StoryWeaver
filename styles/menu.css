@@ -205,7 +205,7 @@ a {
     overflow: visible;
 }
 
-#statistic * {
+#statistic div {
     overflow: visible;
 }
 
@@ -348,10 +348,10 @@ a {
     overflow-y: auto;
 }
 
-.new-container {
+.novel-preview {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     /* соотношение размера обложки 17/24 */
     width: 21.25%;
     background-size: contain;
@@ -359,22 +359,44 @@ a {
     overflow: visible;
 }
 
-.previewImage {
-    width: 91%;
-    height: 91%;
+.preview-image-block {
+    width: 90.9%;
+    /* height from js */
+    background-color: #00000000;
+    overflow: visible;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
     transition: transform 0.3s ease;
 }
 
-.new-container:hover .previewImage {
+
+
+.preview-image-block:hover .preview-image {
     transform: scale(1.1);
 }
 
-.new-container div {
-    width: 90.9%;
-    height: 90.9%;
+.shadow {
+    width: 100%;
+    height: 100%;
     transition: box-shadow 0.3s ease;
 }
 
-.new-container:hover div {
+.shadow:hover {
     box-shadow: 0 0 2vmin 3vmin rgba(0, 0, 0, 0.5);
 }
+
+.novel-preview-name {
+    width: 90.1%;
+    /* bottom: 0; */
+    font-size: 2.5vmin;
+    color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+/* .preview-image-block:hover ~ .novel-preview-name {
+    transform: scale(1.1);
+} */
+
