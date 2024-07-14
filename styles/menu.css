@@ -379,13 +379,17 @@ a {
 }
 
 .shadow {
-    width: 100%;
-    height: 100%;
+    left: 50%;
+    top: 14%;
+    width: 56%;
+    height: 88%;
     transition: box-shadow 0.3s ease;
+    transform: translateX(-50%);
 }
 
-.shadow:hover {
-    box-shadow: 0 0 2vmin 3vmin rgba(0, 0, 0, 0.5);
+.preview-image-block:hover .shadow {
+    box-shadow: 0 0 3vh 10vh rgba(0, 0, 0, 0.4);;
+    
 }
 
 .novel-preview-name {
@@ -396,7 +400,8 @@ a {
     transition: all 0.3s ease;
 }
 
-/* .preview-image-block:hover ~ .novel-preview-name {
+.preview-image-block:hover ~ .novel-preview-name {
     transform: scale(1.1);
-} */
+    color: #ffffff
+}
 

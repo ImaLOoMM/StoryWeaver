@@ -60,26 +60,12 @@ async function f () {
         // const тovelPreviewName_hoveredlTop = (PreviewImageBlock.offsetTop + PreviewImageBlock.offsetHeight) * 110 / window.innerHeight + 0.5;
         const novelPreviewName_hoveredlTop = novelPreviewName_normalTop * 1.05 ;
         NovelPreviewName.style.top = novelPreviewName_normalTop + "vmin";
-        // PreviewImageBlock.addEventListener('hover', function() {
-        //     NovelPreviewName.style.top = (PreviewImageBlock.offsetTop + PreviewImageBlock.offsetHeight) * 110 / window.innerHeight + 0.5 + "vmin";
-        // });
-        // const NovelPreviewNameStyle = document.createElement('style')
-        // NovelPreviewNameStyle.innerHTML =
-        // `
-        // .preview-image-block:hover ~ .novel-preview-name {
-        // transform: scale(1.1);
-        // top: ${(PreviewImageBlock.offsetTop + PreviewImageBlock.offsetHeight) * 110 / window.innerHeight + 0.5}vmin;
-        // }
-        // `;
-        // document.head.appendChild(NovelPreviewNameStyle);
-
         PreviewImageBlock.addEventListener('mouseout', () => {
             NovelPreviewName.style.transform = '';
             NovelPreviewName.style.top = novelPreviewName_normalTop + "vmin";
         });
 
         PreviewImageBlock.addEventListener('mouseover', () => {
-            NovelPreviewName.style.transform = 'scale(1.1)';
             NovelPreviewName.style.top = novelPreviewName_hoveredlTop + "vmin";
         });
     });
