@@ -19,10 +19,13 @@ function getDirectories(srcPath) {
 
 const previewContainer = document.getElementById("novel-select");
 
+
 async function f () {
-    // const novelsList = window.api.pathJoin(__dirname, 'novels');
+    
     const novelsList = await getDirectories('C:/Users/1/Projects/StoryWeaver/novels');
     novelsList.forEach((novel_folder_name, index) => {
+        let originalName, description, translatedNames, likes, views;
+        let novelData;
         const NovelPreview = document.createElement('div');
         const PreviewImageBlock = document.createElement('div');
         const shadow = document.createElement('div');
@@ -48,8 +51,18 @@ async function f () {
         fetch(`C:/Users/1/Projects/StoryWeaver/novels/${novel_folder_name}/preview/info.json`)
         .then(response => response.json())
         .then(data => {
-            NovelPreviewName.innerText = data["original-name"];
-        })
+            // NovelPreviewName.innerText = data["original-name"];
+            [originalName, description, translatedNames, likes, views] = ["original-name", "translated-names", "description", "likes", "viewes"].map(i => data[i]);
+            // originalName = data["original-name"];
+            // novelData = data;
+            NovelPreviewName.innerText = originalName;
+            // novel selected
+            const novelNameElement = document.getElementById("novel-name")
+            NovelPreview.addEventListener('click', function(event) {
+                console.log('Div clicked!', event, index);
+                novelNameElement.innerText = originalName;
+        });
+        });
         // styles
         NovelPreview.style.top = Math.floor(index/4) * 29.9322916666875 + 10.470833333099998 + "vw";
         NovelPreview.style.left = (index % 4) * 21.25 + (index % 4 + 1) * 3 + "%";
@@ -64,7 +77,7 @@ async function f () {
             NovelPreviewName.style.transform = '';
             NovelPreviewName.style.top = novelPreviewName_normalTop + "vmin";
         });
-
+        NovelPreviewName.innerText = originalName;
         PreviewImageBlock.addEventListener('mouseover', () => {
             NovelPreviewName.style.top = novelPreviewName_hoveredlTop + "vmin";
         });

@@ -140,12 +140,20 @@ a {
     
 }
 
-#novel-name {
+.novel-name-block {
     left: 0;
     top: 6.6666667%;
     width: 100%;
     height: 10%;
     border-radius: 0;
+}
+
+#novel-name {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: white
 }
 
 #info-bar {
