@@ -382,13 +382,13 @@ a {
     left: 50%;
     top: 14%;
     width: 56%;
-    height: 88%;
+    height: 90%;
     transition: box-shadow 0.3s ease;
     transform: translateX(-50%);
 }
 
 .preview-image-block:hover .shadow {
-    box-shadow: 0 0 3vh 10vh rgba(0, 0, 0, 0.4);;
+    box-shadow: 0 0 3vh 8vh rgba(0, 0, 0, 0.4);;
     
 }
 
