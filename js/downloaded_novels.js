@@ -31,7 +31,7 @@ function activePreviews(parent, index, status) {
         shadow.classList.add("preview-image-block--hover--shadow");
         novel_preview_name.classList.add("preview-image-block--hover--novel-preview-name");
     }
-    else if (!status & index !== fix_active_statue_on_index) { // не делать неактивной нажатую панель
+    else if (!status && index !== fix_active_statue_on_index) { // не делать неактивной нажатую панель
         novel_preview_name.style.transform = '';
         novel_preview_name.style.top = novelPreviewName_normalTop + "vmin";
 
@@ -46,11 +46,35 @@ function activePreviews(parent, index, status) {
 }
 
 
+const likesCount = document.getElementById("likes-counter");
+const viewsCount = document.getElementById("views-counter");
+
+// Удобнове представление статистики лайков и просмотров
+function show_statistic(statistic_element, count) { 
+    let result;
+    if ( count < 10_000 ) {
+        result = count;
+    } else if ( count >= 10_000 && count < 100_000 ) {
+        result = (count / 1000).toFixed(1) + "K";
+    } else if ( count >= 100_000 && count < 1_000_000 ) {
+        result = parseInt(count / 1000) + "K";
+    } else if ( count >= 1_000_000 && count < 100_000_000 ) {
+        result = (count / 1_000_000).toFixed(1) + "M";
+    } else if ( count >= 100_000_000 && count < 1_000_000_000 ) {
+        result = parseInt(count / 1_000_000) + "M";
+    } else if ( count >= 1_000_000_000) {
+        result = (count / 1_000_000_000).toFixed(1) + "B";
+    }
+    statistic_element.innerText = result;
+}
+
 
 const previewContainer = document.getElementById("novel-select");
+const novelNameElement = document.getElementById("novel-name");
 var fix_active_statue_on_index = -1;
 let novelPreviewName_hoveredlTop;
 let novelPreviewName_normalTop;
+var folder_name_of_chosen_novel;
 
 async function f () {
     
@@ -84,14 +108,10 @@ async function f () {
         fetch(`C:/Users/1/Projects/StoryWeaver/novels/${novel_folder_name}/preview/info.json`)
         .then(response => response.json())
         .then(data => {
-            [originalName, description, translatedNames, likes, views] = ["original-name", "translated-names", "description", "likes", "viewes"].map(i => data[i]);
+            [originalName, description, translatedNames, likes, views] = ["original-name", "translated-names", "description", "likes", "views"].map(i => data[i]);
             NovelPreviewName.innerText = originalName;
             // novel selected
-            const novelNameElement = document.getElementById("novel-name")
             NovelPreview.addEventListener('click', function(event) {
-
-                
-
                 console.log('novel selected: ', novel_folder_name, );
                 novelNameElement.innerText = originalName;
                 fix_active_statue_on_index = index
@@ -99,7 +119,23 @@ async function f () {
                     activePreviews(preview_element, element_index, false)
                 });
                 // activePreviews(NovelPreview, index, true); // кажется оно не надо, но я не уверен...
+                folder_name_of_chosen_novel = novel_folder_name;
+                
+                show_statistic(likesCount, likes);
+                show_statistic(viewsCount, views);
             });
+        })
+        .then(() => {
+            // инициируется выбор первой новеллы
+            if (index === 0) {
+                console.log('first novel: ', novel_folder_name);
+                novelNameElement.innerText = originalName;
+                fix_active_statue_on_index = index
+                activePreviews(NovelPreview, index, true)
+                folder_name_of_chosen_novel = novel_folder_name;
+                show_statistic(likesCount, likes);
+                show_statistic(viewsCount, views);
+            }
         });
 
         // styles

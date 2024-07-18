@@ -1,0 +1,108 @@
+{   
+    "0": [
+        "await-click",
+        {   
+            "where": "content",
+            "count": 2
+        },
+        [1]
+    ],
+    "1": [
+        "text",
+        {
+           "textContent": "Карусель-карусель",
+           "color": "red",
+           "font-size": "6.67vmin",
+           "border-style": "solid",
+           "border-color": "#ffaa10",
+           "border-width": "12px 0px 0px 0px"
+        },
+        [9]
+    ],
+    "9": [
+        "await-time",
+        {   
+            "time": 1000
+        },
+        [2]
+    ],
+    "2": [
+       "fill",
+       {
+          "area": "content",
+          "background": "#fa7249",
+          "text": "#4972af"
+       },
+       [3,4]
+    ],
+    "3": [
+        "fill",
+       {
+          "area": "text",
+          "background": "#D4FA49",
+          "text": "#4972af"
+       },
+       [10]
+    ],
+    "10": [
+        "text",
+        {
+           "textContent": "море-море, океан",
+           "color": "aqua",
+           "borderColor": "#7810FF"
+        },
+        [8]
+    ],
+    "8": [
+        "await-time",
+        {   
+            "time": 1000
+        },
+        [4]
+    ],
+    "4": [
+        "fill",
+        {
+           "area": "content",
+           "background": "#00383a",
+           "text": "white"
+        },
+        [5]
+    ],
+    "5": [
+        "fill",
+        {
+           "area": "text",
+           "background": "#DDDDCC33",
+           "text": "#F3F3FFs"
+        },
+        [7]
+    ],
+    "6": [
+        "text",
+        {
+           "textContent": "pi is <b>very important</b> <i>constant</i> = <s>3</s> <u>3.141592</u> or e<sup>e</sup>. С нажатием пойдёт по кругу",
+           "color": "red",
+           "font-size": "6.67vmin",
+           "border-style": "solid",
+           "border-color": "#ffaa10",
+           "border-width": "12px 0px 0px 0px",
+           "background-color": "aqua"
+        },
+        [0]
+    ],
+    "11": [
+        "await-time",
+        {   
+            "time": 1000
+        },
+        [6]
+    ],
+    "7": [
+        "text",
+        {
+            "textContent": "<em><b>w</em>t</b>t"
+        },
+        [11]
+    ]
+}

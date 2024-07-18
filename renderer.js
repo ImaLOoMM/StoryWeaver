@@ -15,11 +15,11 @@ document.addEventListener('click', (event) => {
 });
 
 
-// // Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
-// var buttons = document.querySelectorAll('button');
-// buttons.forEach(function(button) {
-//     button.setAttribute('tabindex', '-1');
-// });
+// Проходимся по всем найденным кнопкам и добавляем атрибут tabindex="-1"
+var buttons = document.querySelectorAll('button');
+buttons.forEach(function(button) {
+    button.setAttribute('tabindex', '-1');
+});
 
 
 window.addEventListener('keydown', (event) => {
