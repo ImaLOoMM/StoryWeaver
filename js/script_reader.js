@@ -1,9 +1,10 @@
 import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
 import { fill } from './user_funcions/colors.js'; // Awaits
 import { text } from './user_funcions/add.js'; // Awaits
-const { UpdatingActivity, setActivity} = require("./../../js/discord_status")
-// setActivity({ details: "Сидит в лобби"})
-UpdatingActivity(`Проходит: ${document.title}`);
+// const { UpdatingActivity, setActivity} = require("./../../js/discord_status")
+const { UpdatingActivity } = window.api;
+
+UpdatingActivity(`Проходит: ${document.title}`)
 
 const functionMap = {
     "fill": fill,

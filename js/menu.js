@@ -7,6 +7,10 @@ const balanceElement = document.getElementById("user-balance");
 let userInfo = document.getElementById("user-info");
 let ProfileBlock = document.getElementById("profile-block");
 let avatarWidth = setWidthEqualToHeight(avatarElement);
+// Изменение статуса дискорда в лобби
+const { UpdatingActivity } = window.api;
+
+UpdatingActivity("Сидит в лобби")
 
 fetch('user/data.json')
     .then(response => response.json())
@@ -49,14 +53,6 @@ fetch('user/data.json')
         ProfileBlock.style.width = (userInfo.offsetWidth + balanceElement.offsetWidth + 0.15 * avatarWidth) / vminValue + "vmin";
     })
     .catch(error => console.error('Error fetching the JSON:', error));
-
-
-
-// Изменение статуса дискорда в лобби
-// const { UpdatingActivity } = require("./js/discord_status")
-// setActivity({ details: "Сидит в лобби"})
-const { UpdatingActivity } = window.api;
-UpdatingActivity("Сидит в лобби");
 
 // Если пользователь нажимает на Старт
 const button = document.getElementById('start-button');

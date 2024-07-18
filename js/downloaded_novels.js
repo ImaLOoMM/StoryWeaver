@@ -98,7 +98,7 @@ async function f () {
                 document.querySelectorAll('.novel-preview').forEach((preview_element, element_index) => {
                     activePreviews(preview_element, element_index, false)
                 });
-                activePreview(true);
+                // activePreviews(NovelPreview, index, true); // кажется оно не надо, но я не уверен...
             });
         });
 

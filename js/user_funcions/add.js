@@ -1,11 +1,11 @@
 import { one_ctl } from '../one_ctl.js';
-const DOMPurify = require('dompurify')(window);
+const { sanitize } = window.api;
 
 export function text(kwargs = {}, raw_next) {
     return new Promise((resolve, reject) => {
         const paragraph = document.getElementById("text");
         const { textContent = "", ...rest } = kwargs;
-        const cleaned_text = DOMPurify.sanitize(textContent, {
+        const cleaned_text = sanitize(textContent, {
             ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 's', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'], // Разрешенные теги
             ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title'], // Разрешенные атрибуты
         });

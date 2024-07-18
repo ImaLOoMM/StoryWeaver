@@ -2,6 +2,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 const fs = require('fs');
 const path = require('path');
 const RPC = require("discord-rpc");
+const DOMPurify = require('dompurify')(window);
 
 
 // Загрузка дискорда
@@ -58,7 +59,9 @@ function time_representation() {  // Удобное изменение врем�
 function setActivity(values = {details: "", smallImageKey: ""}) {
     values["largeImageKey"] = "swlogo-1024"; // Большое изображение не меняется
     values["state"] = time_representation(); // Время обновляется само
-    values["details"] = "а у него бетка :P" // НЕ ЗАБУДЬ УБРАТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (!values["details"]) {
+        values["details"] = "а у него бетка :P" // НЕ ЗАБУДЬ УБРАТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
 
     const filteredValues = Object.fromEntries(
         Object.entries(values).filter(([_, v]) => v !== "")
@@ -89,11 +92,15 @@ function UpdatingActivity(details) {
 contextBridge.exposeInMainWorld('api', {
   readFile: (filePath) => fs.readFileSync(filePath, 'utf-8'),
   pathJoin: (...args) => path.join(...args),
-//   readdir: (srcPath, options, callback) => fs.readdir(srcPath, options, callback)
   readdir: (srcPath, options, callback) => { return fs.readdir(srcPath, options, callback) },
   readFileSync: (filePath) => fs.readFileSync(filePath, 'utf-8'),
   IsDir: (arg) => { return fs.statSync(arg).isDirectory(); },
   invoke: (channel, data) => ipcRenderer.invoke(channel, data),
+  sanitize: (textContent) => {
+    return DOMPurify.sanitize(textContent, {
+    ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 's', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'],
+    ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title']
+    });},
   on: (channel, listener) => ipcRenderer.on(channel, listener),
-  UpdatingActivity
+  UpdatingActivity: (details) => UpdatingActivity(details)
 });
