@@ -67,14 +67,34 @@ function setActivity(values = {details: "", smallImageKey: ""}) {
         Object.entries(values).filter(([_, v]) => v !== "")
     ); // Убрать ключи со значениями ""
 
-    rpc.setActivity(filteredValues);
+    // rpc.setActivity(filteredValues);
+    // перезапустить. тест
+    rpc.setActivity(filteredValues).catch(err => {
+        console.warn('Error setting activity:', err);
+        restartRPC();
+    });
+}
+
+function restartRPC() {
+    console.log('[discord-rpc]: Restarting RPC');
+    rpc.destroy().then(() => {
+        rpc = new RPC.Client({ transport: 'ipc' });
+        rpc.on('ready', () => {
+            setActivity();
+            console.log('[discord-rpc]: Discord activity has been added');
+        });
+        rpc.login({ clientId }).catch(err => {
+            console.error('Error logging in:', err);
+            setTimeout(restartRPC, 5000); // Попробуйте снова через 5 секунд
+        });
+    });
 }
 
 
 rpc.on('ready', () => {
     console.log('[discord-rpc]: Discord activity has been added'); // Первый запуск
 });
-  
+
 rpc.login({ clientId }).catch(console.warn);
 
 
@@ -90,17 +110,18 @@ function UpdatingActivity(details) {
 
 
 contextBridge.exposeInMainWorld('api', {
-  readFile: (filePath) => fs.readFileSync(filePath, 'utf-8'),
-  pathJoin: (...args) => path.join(...args),
-  readdir: (srcPath, options, callback) => { return fs.readdir(srcPath, options, callback) },
-  readFileSync: (filePath) => fs.readFileSync(filePath, 'utf-8'),
-  IsDir: (arg) => { return fs.statSync(arg).isDirectory(); },
-  invoke: (channel, data) => ipcRenderer.invoke(channel, data),
-  sanitize: (textContent) => {
-    return DOMPurify.sanitize(textContent, {
-    ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 's', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'],
-    ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title']
-    });},
-  on: (channel, listener) => ipcRenderer.on(channel, listener),
-  UpdatingActivity: (details) => UpdatingActivity(details)
-});
+    readFile: (filePath) => fs.readFileSync(filePath, 'utf-8'),
+    pathJoin: (...args) => path.join(...args),
+    readdir: (srcPath, options, callback) => { return fs.readdir(srcPath, options, callback) },
+    readFileSync: (filePath) => fs.readFileSync(filePath, 'utf-8'),
+    IsDir: (arg) => { return fs.statSync(arg).isDirectory(); },
+    invoke: (channel, data) => ipcRenderer.invoke(channel, data),
+    sanitize: (textContent) => {
+        return DOMPurify.sanitize(textContent, {
+            ALLOWED_TAGS: ['p', 'strong', 'em', 'i', 'b', 'u', 's', 'span', 'small', 'big', 'mark', 'sub', 'sup', 'abbr'],
+            ALLOWED_ATTR: ['color', 'lang', 'dir', 'id', 'class', 'title']
+        });
+    },
+    on: (channel, listener) => ipcRenderer.on(channel, listener),
+    UpdatingActivity: (details) => UpdatingActivity(details)
+  });
