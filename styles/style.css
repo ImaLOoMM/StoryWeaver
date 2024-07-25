@@ -1,13 +1,16 @@
 * {
-   margin: 0px;
-   padding: 0px;
-   user-select: none;
-   box-sizing: border-box;
-   transition: filter 0.5s ease;
+    
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+    box-sizing: border-box;
+    transition: filter 0.5s ease;
 }
+
 body {
     font-size: 2vmin;
 }
+
 img{
     pointer-events: none;
 }
@@ -18,47 +21,9 @@ a {
     user-select: none;
 }
 
-#loading-window {
-    z-index: 21;
-    background-color: #8fbc8f;
-    color: red;
-    font-size: 36pt;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    
-}
-#loading-window img {
-    position: absolute;
-    max-width: 50%;
-    max-height: 50%;
-    top: 25%;
-    left: 25%;
-}
-
-
-#oc_arrow {
-    border-color: red;
-    position: absolute;
-    transition: transform 0.3s ease;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    
-    
-    left: 0;
-}
-.left-arrow {
-    transform: scaleX(-1);
-}
-
-
 #panel {
-    z-index: 9;
     position: absolute;
+    z-index: 9;
     top: 0;
     left: -20%;
     width: 20%;
@@ -67,20 +32,28 @@ a {
     
     transition: left 0.3s ease-in-out;
 }
-#panel_button {
+
+#pause-barrier {
     z-index: 9;
     position: absolute;
-    left: 0%;
-    width: 2.76vmax;
-    height: 5vmax;
-    transition: left 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
-    margin: 0px;
-    margin-left: 1%;
-    background-repeat: no-repeat;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: #00000000;
-    background-size: cover;
-    border: none;
+    
+    transition: backdrop-filter 0.3s ease-in-out;
 }
+
+.inactive-pause-barrier {
+    left: -100%;
+}
+
+.active-pause-barrier {
+    left: 0;
+    backdrop-filter: blur(0.5vmin);
+}
+
+
 
 #options {
     margin-left: 10%;
@@ -126,5 +99,4 @@ a {
 
 .blur-effect {
     filter: blur(10px);
-    
 }
