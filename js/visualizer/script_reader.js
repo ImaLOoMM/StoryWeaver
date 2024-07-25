@@ -1,7 +1,7 @@
-import { await_click, await_time } from './../user_funcions/awaits.js'; // Awaits
-import { fill } from './../user_funcions/colors.js'; // Awaits
+import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
+import { fill } from './user_funcions/colors.js'; // Awaits
+import { text } from './user_funcions/add.js'; // Text
 
-import { text } from './../user_funcions/add.js'; // Text
 const functionMap = {
     "fill": fill,
     "await-click": await_click,
@@ -21,7 +21,6 @@ async function behavior_manager(func_name, func_kwargs, raw_next) {
 async function read(script){
     let key = 0;
     let element = 0;
-    // const len = Object.keys(script).length;
     while (true){
         element ++;
         console.log(element + " {");
@@ -46,19 +45,22 @@ async function read(script){
     }
 }
 
+
+function distributor(script) {
+    let mainScript = script["main"];
+    let functions = script["functions"];
+    let listeners = script["listeners"];
+
+    read(mainScript)
+}
+
 fetch("behavior.json") // Загружает файл JSON
     .then(response => {
         // Обработка HTTP-ответа
         return response.json(); // Преобразет ответ в JSON и передаёт дальше
     })
     .then(data => {
-        read(data)
-    })
-    .then(() => {
-        var overlay = document.getElementById("loading-window");
-        if (overlay) {
-            overlay.parentNode.removeChild(overlay);
-        }
+        distributor(data)
     })
     .catch(error => {
         // Обработка ошибок
