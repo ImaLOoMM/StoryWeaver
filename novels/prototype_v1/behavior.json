@@ -91,7 +91,7 @@
                "border-width": "12px 0px 0px 0px",
                "background-color": "aqua"
             },
-            [0]
+            [12]
         ],
         "11": [
             "await-time",
@@ -106,7 +106,24 @@
                 "textContent": "<em><b>w</em>t</b>t"
             },
             [11]
+        ],
+        "12": [
+            "create-variable",
+            {
+                "name": "lala",
+                "value": "1"
+            },
+            [13]
+        ],
+        "13": [
+            "create-variable",
+            {
+                "name": "lalala",
+                "value": 10
+            },
+            [0]
         ]
+        
     },
 
 

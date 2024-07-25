@@ -1,12 +1,15 @@
-import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
-import { fill } from './user_funcions/colors.js'; // Awaits
+window.Variables = {};import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
+
+import { fill } from './user_funcions/colors.js'; // Styles
 import { text } from './user_funcions/add.js'; // Text
+import { create_variable } from './user_funcions/create_variable.js'; // Vars
 
 const functionMap = {
     "fill": fill,
     "await-click": await_click,
     "await-time": await_time,
-    "text": text
+    "text": text,
+    "create-variable": create_variable,
 }
 
 async function behavior_manager(func_name, func_kwargs, raw_next) {
