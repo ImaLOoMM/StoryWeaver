@@ -28,18 +28,14 @@ async function read(script){
     let element = 0;
     while (true){
         element ++;
-        console.log(key + " {");
         
         const [funcname, kwargs, raw_next] = script[key];
         
-        console.log(funcname);
-        console.log(element);
-        console.log(kwargs);
+        console.log({key: key, funcname: funcname, count: element, kwargs: kwargs});
 
         const next = await behavior_manager(funcname, kwargs, raw_next);
         
-        console.log(raw_next);
-        console.log(next + " }");
+        console.log(`[${raw_next}] ⟶ ${next}`);
         if (next in script){
             key = next
         } else {
