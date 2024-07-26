@@ -1,8 +1,9 @@
-window.Variables = {};import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
+window.Variables = {};
 
+import { await_click, await_time } from './user_funcions/awaits.js'; // Awaits
 import { fill } from './user_funcions/colors.js'; // Styles
 import { text } from './user_funcions/add.js'; // Text
-import { create_variable } from './user_funcions/create_variable.js'; // Vars
+import { create_variable, variable } from './user_funcions/manage_variable.js'; // Vars
 
 const functionMap = {
     "fill": fill,
@@ -10,6 +11,7 @@ const functionMap = {
     "await-time": await_time,
     "text": text,
     "create-variable": create_variable,
+    "variable": variable,
 }
 
 async function behavior_manager(func_name, func_kwargs, raw_next) {
@@ -26,12 +28,12 @@ async function read(script){
     let element = 0;
     while (true){
         element ++;
-        console.log(element + " {");
+        console.log(key + " {");
         
         const [funcname, kwargs, raw_next] = script[key];
         
         console.log(funcname);
-        console.log(key);
+        console.log(element);
         console.log(kwargs);
 
         const next = await behavior_manager(funcname, kwargs, raw_next);

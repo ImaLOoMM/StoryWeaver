@@ -109,17 +109,27 @@
         ],
         "12": [
             "create-variable",
-            {
+            {   
+                "type": "STR",
                 "name": "lala",
-                "value": "1"
+                "value": "pum"
             },
             [13]
         ],
         "13": [
             "create-variable",
             {
+                "type": "Int",
                 "name": "lalala",
                 "value": 10
+            },
+            [14]
+        ],
+        "14": [
+            "variable",
+            {
+                "name": "lalala",
+                "value": "!lalala+10*2+!lalala^1.65"
             },
             [0]
         ]

@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 const fs = require('fs');
 const path = require('path');
+const math = require('mathjs');
 const RPC = require("discord-rpc");
 const DOMPurify = require('dompurify')(window);
 
@@ -123,5 +124,6 @@ contextBridge.exposeInMainWorld('api', {
         });
     },
     on: (channel, listener) => ipcRenderer.on(channel, listener),
-    UpdatingActivity: (details) => UpdatingActivity(details)
+    UpdatingActivity: (details) => UpdatingActivity(details),
+    mathEvaluate: (expression) => math.evaluate(expression)
   });

@@ -12,6 +12,7 @@
     "discord-rpc": "^4.0.1",
     "dompurify": "^3.1.5",
     "gif.js": "^0.2.0",
+    "mathjs": "^13.0.3",
     "tmp": "^0.2.3"
   },
   "devDependencies": {
