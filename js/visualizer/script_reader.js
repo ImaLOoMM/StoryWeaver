@@ -48,11 +48,13 @@ async function read(script){
 
 
 function distributor(script) {
-    let mainScript = script["main"];
+    let defaults = script["defaults"];
+    let imports = script["imports"];
     let functions = script["functions"];
     let listeners = script["listeners"];
+    let mainScript = script["main"];
 
-    read(mainScript)
+    read(mainScript);
 }
 
 fetch("behavior.json") // Загружает файл JSON

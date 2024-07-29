@@ -1,4 +1,27 @@
 {
+    "defaults": {
+        "numberOfDecimalPlaces": 2,
+        "auto-rounding": false
+    },
+
+    "imports": {
+
+    },
+
+    "functions": {
+        "someFunc": {
+            "args": [],
+            "kwargs": {},
+            "body": {
+                "return": null
+            }
+        }
+    },
+
+    "listeners": {
+        "variable": {}
+    },
+
     "main": {
 
         "0": [
@@ -110,8 +133,8 @@
         "12": [
             "create-variable",
             {   
-                "type": "STR",
-                "name": "lala",
+                "type": "STRING",
+                "name": "str",
                 "value": "pum"
             },
             [13]
@@ -119,8 +142,8 @@
         "13": [
             "create-variable",
             {
-                "type": "Int",
-                "name": "lalala",
+                "type": "NUMBER",
+                "name": "someNumber",
                 "value": 10
             },
             [14]
@@ -128,25 +151,18 @@
         "14": [
             "variable",
             {
-                "name": "lalala",
-                "value": "!lalala+10*2+!lalala^1.65"
+                "name": "someNumber",
+                "value": "${someNumber}+10*(2+${someNumber}^1.65)"
+            },
+            [15]
+        ],
+        "15": [
+            "variable",
+            {
+                "name": "str",
+                "value": "!str${-}${str}"
             },
             [0]
-        ]
-        
-    },
-
-
-
-
-    "functions": {
-
-    },
-
-
-
-
-    "listeners": {
-
+        ]        
     }
 }
