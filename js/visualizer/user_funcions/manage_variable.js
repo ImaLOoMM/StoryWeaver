@@ -2,20 +2,20 @@ import { one_ctl } from '../one_ctl.js';
 const { mathEvaluate } = window.api;
 
 
-function variablesToValues(expression) {
+export function variablesToValues(expression, variableScope) {
     // В строке-выражении заменяет переменные на их значения
     return expression.replace(/\${([a-zA-Z_$][0-9a-zA-Z_$]*)}/g, (match, variableName) => {
-        if (window.Variables.hasOwnProperty(variableName)) {
-            return window.Variables[variableName]["value"];
+        if (variableScope.hasOwnProperty(variableName)) {
+            return variableScope[variableName]["value"];
         } else {
-            throw new Error(`Variable ${variableName} is not defined in Variables`);
+            throw new Error(`"${variableName}" is not defined`);
         }
     });
 }
 
 
-function safeEval(AlgExpression) {
-    let ClearExpression = variablesToValues(AlgExpression);
+export function safeEval(AlgExpression, variableScope) {
+    let ClearExpression = variablesToValues(AlgExpression, variableScope);
 
     try {
         if (/^[0-9+\-*/^().\s]+$/.test(ClearExpression)) {
@@ -31,7 +31,7 @@ function safeEval(AlgExpression) {
 
 
 
-export function create_variable({name=null, value=null, type=""}, raw_next) {
+export function create_variable({name=null, value=null, type=""}, raw_next, variableScope) {
     return new Promise((resolve, reject) => {
         const identifierRegex = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/; // шаблон имени переменной
         if (!identifierRegex.test(name)) { // если имя не соответствует шаблону
@@ -67,22 +67,21 @@ export function create_variable({name=null, value=null, type=""}, raw_next) {
             
             }
             
-        window.Variables[name] = {"value": value, "type": type};
-        console.log(window.Variables);
+        variableScope[name] = {"value": value, "type": type};
+        console.log(variableScope);
         return resolve(one_ctl(raw_next));
     });
 }
 
 export function variable({name=null, value=null}, raw_next) {
     return new Promise((resolve, reject) => {
-        switch (window.Variables[name]["type"]) {
+        switch (variableScope[name]["type"]) {
             case "number":
-                window.Variables[name]["value"] = safeEval(value);
+                variableScope[name]["value"] = safeEval(value, variableScope);
                 break;
             case "string":
-                window.Variables[name]["value"] = variablesToValues(value);
+                variableScope[name]["value"] = variablesToValues(value, variableScope);
                 break;
-            
             default:
                 // потом
                 break;

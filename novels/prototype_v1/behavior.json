@@ -10,10 +10,36 @@
 
     "functions": {
         "someFunc": {
-            "args": [],
-            "kwargs": {},
-            "body": {
-                "return": null
+            "args": {
+                "a": null,
+                "b": null
+            },
+            "optargs": {},
+            "algorithm": {
+                "0": [
+                    "create-variable",
+                    {
+                        "type": "number",
+                        "name": "result",
+                        "value": 0
+                    },
+                    [1]
+                ],
+                "1": [
+                    "variable",
+                    {
+                        "name": "result",
+                        "value": "${a}*${b}"
+                    },
+                    [2]
+                ],
+                "2": [
+                    "return",
+                    {
+                        "value": "${result}"
+                    },
+                    []
+                ]
             }
         }
     },
@@ -162,7 +188,20 @@
                 "name": "str",
                 "value": "!str${-}${str}"
             },
+            [16]
+        ],
+        "16": [
+            "user-func",
+            {
+                "func_name": "someFunc",
+                "args": {
+                    "a": "${someNumber}",
+                    "b": "2"
+                }
+            },
             [0]
-        ]        
+        ]
+         
+
     }
 }
