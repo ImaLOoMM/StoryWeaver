@@ -7,6 +7,8 @@ import { fill } from './user_funcions/colors.js'; // Styles
 import { text } from './user_funcions/add.js'; // Text
 import { create_variable, variable, variablesToValues } from './user_funcions/manage_variable.js'; // Vars
 import { init_functions } from "./functions.js"
+import { swdata } from "./lexer.js"
+swdata()
 
 let defaults;
 let imports;

@@ -57,6 +57,7 @@ fetch('user/data.json')
 // Если пользователь нажимает на Старт
 const button = document.getElementById('start-button');
 button.addEventListener('click', function() {
+    localStorage.setItem("startedNovel", window.folder_name_of_chosen_novel)
     window.location.href = `novels/${window.folder_name_of_chosen_novel}/start.html`; // Ссылка на стартовый файл новеллы
 });
 

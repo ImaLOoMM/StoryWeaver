@@ -1,6 +1,13 @@
 import { one_ctl } from '../one_ctl.js';
 const { mathEvaluate } = window.api;
 
+export function VariableType(variable) {
+
+    switch (typeof(variable)){
+        case "string":
+    }
+}
+
 
 export function variablesToValues(expression, variableScope) {
     // В строке-выражении заменяет переменные на их значения
@@ -73,7 +80,7 @@ export function create_variable({name=null, value=null, type=""}, raw_next, vari
     });
 }
 
-export function variable({name=null, value=null}, raw_next) {
+export function variable({name=null, value=null}, raw_next, variableScope) {
     return new Promise((resolve, reject) => {
         switch (variableScope[name]["type"]) {
             case "number":

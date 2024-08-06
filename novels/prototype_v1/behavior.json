@@ -188,7 +188,7 @@
                 "name": "str",
                 "value": "!str${-}${str}"
             },
-            [16]
+            [0]
         ],
         "16": [
             "user-func",
@@ -196,7 +196,7 @@
                 "func_name": "someFunc",
                 "args": {
                     "a": "${someNumber}",
-                    "b": "2"
+                    "b": 2
                 }
             },
             [0]

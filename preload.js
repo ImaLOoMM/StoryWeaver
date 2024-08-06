@@ -4,6 +4,7 @@ const path = require('path');
 const math = require('mathjs');
 const RPC = require("discord-rpc");
 const DOMPurify = require('dompurify')(window);
+const lineReader = require('line-reader');
 
 
 // Загрузка дискорда
@@ -103,7 +104,7 @@ function UpdatingActivity(details) {
     setInterval(() => {
         setActivity({ details: details });
         console.log("[discord-rpc]: Discord activity has been updated");
-    }, 3e3); // Обновление каждые 3 секунды
+    }, 30e3); // Обновление каждые 30 секунд
 }
 
 
@@ -125,5 +126,43 @@ contextBridge.exposeInMainWorld('api', {
     },
     on: (channel, listener) => ipcRenderer.on(channel, listener),
     UpdatingActivity: (details) => UpdatingActivity(details),
-    mathEvaluate: (expression) => math.evaluate(expression)
+    mathEvaluate: (expression) => math.evaluate(expression),
+    lineReader: (filePath) => {
+            return new Promise((resolve, reject) => {
+                const lines = [];
+                lineReader.eachLine(filePath, (line, last, callback) => {
+                    lines.push(line);
+                    if (last) {
+                        resolve(lines);
+                    }
+                    callback();
+                }, (err) => {
+                    if (err) {
+                        reject(err);
+                    }
+                });
+            });
+    },
+    readFileAsArray: (relativeFilePath) => {
+        return new Promise((resolve, reject) => {
+            const absoluteFilePath = path.join(__dirname, relativeFilePath);
+            
+            if (!fs.existsSync(absoluteFilePath)) {
+                return reject(new Error('File does not exist'));
+            }
+
+            const lines = [];
+            lineReader.eachLine(absoluteFilePath, (line, last, callback) => {
+                lines.push(line);
+                if (last) {
+                    resolve(lines);
+                }
+                callback();
+            }, (err) => {
+                if (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
   });
