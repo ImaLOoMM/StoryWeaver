@@ -1,10 +1,10 @@
 {
     "nickname": "User",
-    "sex": "Uncnown",
+    "sex": "Unknown",
     "date": 4,
     "month": 3,
     "year": 1907,
-    "GMt": 0,
-    "avatar": "test.jpg",
+    "GMT": 0,
+    "avatar": "U.png",
     "language": "ru"
 }
